@@ -22,14 +22,8 @@ public class SongScanner {
         }
         catch (FileNotFoundException e)
         {
-            //not sure what to do with this exception   
+            System.err.println("Caught FileNotFoundException"); 
         }
         return songList;
-    }
-
-    //don't think we need these methods below but i'm not sure
-    
-    public void sortByTitle() {
-        // TODO
     }
 }

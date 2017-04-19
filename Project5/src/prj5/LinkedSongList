@@ -1,0 +1,102 @@
+/**
+ * 
+ */
+package prj5;
+
+import java.util.Iterator;
+
+/**
+ * @author AshlynUser
+ *
+ */
+public class LinkedSongList<T> extends DoublyLinkedList<T> {
+    
+    public DoublyLinkedList<Song> sortByTitle(DoublyLinkedList<Song> songList)
+    {
+        DoublyLinkedList<Song> titleList = new DoublyLinkedList<>();
+        //something about comparing song year
+        Iterator<Song> iterator = songList.getIterator();
+        while (iterator.hasNext())
+        {
+            //should be length possibly?
+            int size = titleList.size();
+            Song currentSong = iterator.next();
+            int position = 1;
+            //something about comparing the song at the given position
+            //to the current entry
+            while (position <= size)
+            {
+                position++;
+            }
+            titleList.add(position, currentSong);
+        }
+        return titleList;
+    }
+    
+    public DoublyLinkedList<Song> sortByAuthor(DoublyLinkedList<Song> songList)
+    {
+        DoublyLinkedList<Song> authorList = new DoublyLinkedList<>();
+        //something about comparing song year
+        Iterator<Song> iterator = songList.getIterator();
+        while (iterator.hasNext())
+        {
+            //should be length possibly?
+            int size = authorList.size();
+            Song currentSong = iterator.next();
+            int position = 1;
+            //something about comparing the song at the given position
+            //to the current entry
+            while (position <= size)
+            {
+                position++;
+            }
+            authorList.add(position, currentSong);
+        }
+        return authorList;
+    }
+    
+    public DoublyLinkedList<Song> sortByYear(DoublyLinkedList<Song> songList)
+    {
+        DoublyLinkedList<Song> yearList = new DoublyLinkedList<>();
+        //something about comparing song year
+        Iterator<Song> iterator = songList.getIterator();
+        while (iterator.hasNext())
+        {
+            //should be length possibly?
+            int size = yearList.size();
+            Song currentSong = iterator.next();
+            int position = 1;
+            //something about comparing the song at the given position
+            //to the current entry
+            while (position <= size)
+            {
+                position++;
+            }
+            yearList.add(position, currentSong);
+        }
+        return yearList;
+    }
+    
+    public DoublyLinkedList<Song> sortByGenre(DoublyLinkedList<Song> songList)
+    {
+        DoublyLinkedList<Song> genreList = new DoublyLinkedList<>();
+        //something about comparing song genre
+        Iterator<Song> iterator = songList.getIterator();
+        while (iterator.hasNext())
+        {
+            //should be length possibly?
+            int size = genreList.size();
+            Song currentSong = iterator.next();
+            int position = 1;
+            //something about comparing the song at the given position
+            //to the current entry
+            while (position <= size)
+            {
+                position++;
+            }
+            genreList.add(position, currentSong);
+        }
+        return genreList;
+    }
+    
+}

@@ -32,7 +32,7 @@ public class CompareSongArtistTest extends student.TestCase {
     
     /**
      * tests the compare method when the two objects
-     * have different artists
+     * have the same artist
      */
     public void testCompareSameArtist()
     {

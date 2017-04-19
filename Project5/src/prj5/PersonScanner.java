@@ -36,11 +36,7 @@ public class PersonScanner {
             Person per = new Person(identification, date, hobby, major, region, ans);
             peopleList.addToBack(per);
         }
-        
         scan.close();
-    }
-    
-    public DoublyLinkedList<Person> getPeopleList() {
         return peopleList;
     }
 }

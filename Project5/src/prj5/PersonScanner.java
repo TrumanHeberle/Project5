@@ -13,30 +13,36 @@ public class PersonScanner {
     }
     
     public void scanPeople(String fileName) throws FileNotFoundException {
-        Scanner scan = new Scanner(new File(fileName));
-        scan.useDelimiter(",");
+        try {
+            Scanner scan = new Scanner(new File(fileName));
+            scan.useDelimiter(",");
         
-        while (scan.hasNext()) {
-            Scanner line = new Scanner(scan.nextLine());
+            while (scan.hasNext()) {
+                Scanner line = new Scanner(scan.nextLine());
             
-            int identification = line.next();
-            String date = line.next();
-            String hobby =  = line.next();
-            String major = line.next();
-            String region =  = line.next();
+                int identification = line.next();
+                String date = line.next();
+                String hobby =  = line.next();
+                String major = line.next();
+                String region =  = line.next();
             
-            String[] ans = new String[]();
-            int x = 0;
-            while (line.hasNext())
-            {
-                ans[x] = line.next();
-                x++;
-            }
+                String[] ans = new String[]();
+                int x = 0;
+                while (line.hasNext())
+                {
+                    ans[x] = line.next();
+                    x++;
+                }
             
-            Person per = new Person(identification, date, hobby, major, region, ans);
-            peopleList.addToBack(per);
+                Person per = new Person(identification, date, hobby, major, region, ans);
+                peopleList.addToBack(per);
+            }   
+            scan.close();
         }
-        scan.close();
+        catch (FileNotFoundException e)
+        {
+            System.err.println("Caught FileNotFoundException"); 
+        }
         return peopleList;
     }
 }

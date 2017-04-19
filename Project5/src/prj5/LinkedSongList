@@ -22,9 +22,7 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
             int size = titleList.size();
             Song currentSong = iterator.next();
             int position = 1;
-            //something about comparing the song at the given position
-            //to the current entry
-            while (position <= size)
+            while (position <= size && comparer.compare(currentSong,titleList.getEntry(position)) > 0)
             {
                 position++;
             }
@@ -44,15 +42,13 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
             int size = artistList.size();
             Song currentSong = iterator.next();
             int position = 1;
-            //something about comparing the song at the given position
-            //to the current entry
-            while (position <= size)
+            while (position <= size && comparer.compare(currentSong, artistList.getEntry(position)) > 0)
             {
                 position++;
             }
             artistList.add(position, currentSong);
         }
-        return authorList;
+        return artistList;
     }
     
     public DoublyLinkedList<Song> sortByYear(DoublyLinkedList<Song> songList)
@@ -66,9 +62,7 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
             int size = yearList.size();
             Song currentSong = iterator.next();
             int position = 1;
-            //something about comparing the song at the given position
-            //to the current entry
-            while (position <= size)
+            while (position <= size && comparer.compare(currentSong, yearList.getEntry(position)) > 0)
             {
                 position++;
             }
@@ -88,9 +82,7 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
             int size = genreList.size();
             Song currentSong = iterator.next();
             int position = 1;
-            //something about comparing the song at the given position
-            //to the current entry
-            while (position <= size)
+            while (position <= size && comparer.compare(currentSong, genreList.getEntry(position)) > 0)
             {
                 position++;
             }

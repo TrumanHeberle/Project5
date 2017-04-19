@@ -3,7 +3,7 @@ package prj5;
 public class SongScanner {
 
     public DoublyLinkedList<Song> scanSongs(String songFile) {
-        DoublyLinkedList<Song> = new DoublyLinkedList<Song>();
+        DoublyLinkedList<Song> songList = new DoublyLinkedList<Song>();
         try
         {
             Scanner file = new Scanner(new File(songFile));
@@ -28,10 +28,6 @@ public class SongScanner {
     }
 
     //don't think we need these methods below but i'm not sure
-    public SONGLIST getSongList() {
-        // TODO Auto-generated method stub
-        return null;
-    }
     
     public void sortByTitle() {
         // TODO

@@ -14,7 +14,7 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
     public DoublyLinkedList<Song> sortByTitle(DoublyLinkedList<Song> songList)
     {
         DoublyLinkedList<Song> titleList = new DoublyLinkedList<>();
-        //something about comparing song year
+        CompareSongTitle comparer = new CompareSongTitle();
         Iterator<Song> iterator = songList.getIterator();
         while (iterator.hasNext())
         {
@@ -33,15 +33,15 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
         return titleList;
     }
     
-    public DoublyLinkedList<Song> sortByAuthor(DoublyLinkedList<Song> songList)
+    public DoublyLinkedList<Song> sortByArtist(DoublyLinkedList<Song> songList)
     {
-        DoublyLinkedList<Song> authorList = new DoublyLinkedList<>();
-        //something about comparing song year
+        DoublyLinkedList<Song> artistList = new DoublyLinkedList<>();
+        CompareSongArtist comparer = new CompareSongArtist();
         Iterator<Song> iterator = songList.getIterator();
         while (iterator.hasNext())
         {
             //should be length possibly?
-            int size = authorList.size();
+            int size = artistList.size();
             Song currentSong = iterator.next();
             int position = 1;
             //something about comparing the song at the given position
@@ -50,7 +50,7 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
             {
                 position++;
             }
-            authorList.add(position, currentSong);
+            artistList.add(position, currentSong);
         }
         return authorList;
     }
@@ -58,7 +58,7 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
     public DoublyLinkedList<Song> sortByYear(DoublyLinkedList<Song> songList)
     {
         DoublyLinkedList<Song> yearList = new DoublyLinkedList<>();
-        //something about comparing song year
+        CompareSongYear comparer = new CompareSongYear();
         Iterator<Song> iterator = songList.getIterator();
         while (iterator.hasNext())
         {
@@ -80,7 +80,7 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
     public DoublyLinkedList<Song> sortByGenre(DoublyLinkedList<Song> songList)
     {
         DoublyLinkedList<Song> genreList = new DoublyLinkedList<>();
-        //something about comparing song genre
+        CompareSongGenre comparer = new CompareSongGenre();
         Iterator<Song> iterator = songList.getIterator();
         while (iterator.hasNext())
         {

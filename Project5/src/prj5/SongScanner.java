@@ -19,6 +19,7 @@ public class SongScanner {
                     index += 2;
                 }
             }
+            file.close();
         }
         catch (FileNotFoundException e)
         {

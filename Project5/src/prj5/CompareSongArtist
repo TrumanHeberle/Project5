@@ -1,0 +1,19 @@
+package prj5;
+
+import java.util.Comparator;
+
+/**
+ * @author AshlynUser
+ *
+ */
+public class CompareSongArtist implements Comparator<Object>{
+
+    /**
+     * compares two songs based on the artist
+     */
+    @Override
+    public int compare(Object o1, Object o2)
+    {
+        //don't know how to do this
+    }
+}

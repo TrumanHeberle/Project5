@@ -2,10 +2,15 @@ package prj5;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class PersonScanner {
     private DoublyLinkedList<Person> peopleList;
+    
+    public PersonScanner() {
+        peopleList = new DoublyLinkedList<Person>();
+    }
     
     public PersonScanner(String fileName) throws FileNotFoundException {
         peopleList = new DoublyLinkedList<Person>();
@@ -13,36 +18,29 @@ public class PersonScanner {
     }
     
     public void scanPeople(String fileName) throws FileNotFoundException {
-        try {
-            Scanner scan = new Scanner(new File(fileName));
-            scan.useDelimiter(",");
+        Scanner scan = new Scanner(new File(fileName));
+        // Skips Header
+        if (scan.hasNextLine()) {
+            scan.nextLine();
+        }
         
-            while (scan.hasNext()) {
-                Scanner line = new Scanner(scan.nextLine());
+        // Searches through list
+        while (scan.hasNextLine()) {
+            String[] values = scan.nextLine().split(",");
             
-                int identification = line.next();
-                String date = line.next();
-                String hobby =  = line.next();
-                String major = line.next();
-                String region =  = line.next();
+            int id = Integer.parseInt(values[0]);
+            String date = values[1];
+            String major = values[2];
+            String region = values[3];
+            String hobby = values[4];
+            String[] answers = Arrays.copyOfRange(values, 4, values.length);
             
-                String[] ans = new String[]();
-                int x = 0;
-                while (line.hasNext())
-                {
-                    ans[x] = line.next();
-                    x++;
-                }
-            
-                Person per = new Person(identification, date, hobby, major, region, ans);
-                peopleList.addToBack(per);
-            }   
-            scan.close();
+            Person person = new Person(id, date, major, region, hobby, answers);
+            peopleList.addToBack(person);
         }
-        catch (FileNotFoundException e)
-        {
-            System.err.println("Caught FileNotFoundException"); 
-        }
+    }
+    
+    public DoublyLinkedList<Person> getPeopleList() {
         return peopleList;
     }
 }

@@ -7,5 +7,5 @@ package prj5;
  * @version 4.15.2017
  */
 public enum RegionEnum {
-    NORTH_EAST_US, SOUTH_EAST_US, OTHER_US, OUTSIDE_US, OTHER;
+    NORTH_EAST_US, SOUTH_EAST_US, OTHER_US, OUTSIDE_US, ELSE;
 }

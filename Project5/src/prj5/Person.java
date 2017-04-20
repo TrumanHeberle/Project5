@@ -118,7 +118,15 @@ public class Person {
      * @return The person's response
      */
     public boolean getLiked(int songNum) {
-        return YES_MAP.equals(answers[1 + 2 * songNum].toLowerCase());
+        try
+        {
+            return YES_MAP.equals(answers[1 + 2 * songNum].toLowerCase());
+        }
+        catch (Exception e)
+        {
+            
+        }
+        return false;
     }
 
 

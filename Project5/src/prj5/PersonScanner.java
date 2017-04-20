@@ -27,6 +27,9 @@ public class PersonScanner {
         // Searches through list
         while (scan.hasNextLine()) {
             String[] values = scan.nextLine().split(",");
+            for (int i = 0; i < values.length; i++) {
+                values[i] = values[i].trim();
+            }
             
             int id = Integer.parseInt(values[0]);
             String date = values[1];
@@ -35,12 +38,13 @@ public class PersonScanner {
             String hobby = values[4];
             String[] answers = Arrays.copyOfRange(values, 4, values.length);
             
-            Person person = new Person(id, date, major, region, hobby, answers);
+            Person person = new Person(id, date, hobby, major, region, answers);
             peopleList.addToBack(person);
         }
+        scan.close();
     }
     
     public DoublyLinkedList<Person> getPeopleList() {
         return peopleList;
     }
-}
+} 

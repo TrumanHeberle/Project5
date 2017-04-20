@@ -9,5 +9,6 @@ public enum HobbyEnum {
     READ,
     ART,
     SPORTS,
-    MUSIC;
+    MUSIC,
+    ELSE;
 }

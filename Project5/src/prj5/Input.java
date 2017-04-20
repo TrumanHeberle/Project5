@@ -7,8 +7,8 @@ public class Input {
      */
     public static void main(String[] args) {
         PersonScanner personScanner = new PersonScanner(args[0]);
-        SongScanner songScanner = new SongScanner(args[0]);
+        SongScanner songScanner = new SongScanner(args[1]);
         GUIDisplayWindow gui;
-        gui = new GUIDisplayWindow(args[0], args[1]);
+        gui = new GUIDisplayWindow();
     }
 }

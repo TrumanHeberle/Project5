@@ -10,6 +10,8 @@ package prj5;
 public class SongTest extends student.TestCase {
 
     private Song song;
+    private Song song2;
+    private Song song3;
     
     /**
      * sets up the test methods
@@ -17,6 +19,8 @@ public class SongTest extends student.TestCase {
     public void setUp()
     {
         song = new Song("Hello", "Adele", 2016, "Pop", 1);
+        song2 = new Song("Hey", "Taylor Swift", 2010, "Pop", 2);
+        song3 = new Song("Billie Jean", "Michael Jackson", 2000, "Pop", 3);
     }
     
     /**
@@ -36,16 +40,20 @@ public class SongTest extends student.TestCase {
     public void testAddData()
     {
         String[] answers = new String[6];
-        answers[0] = "yes";
-        answers[1] = "no";
-        answers[2] = "no";
-        answers[3] = "no";
-        answers[4] = "yes";
-        answers[5] = "yes";
+        answers[0] = "Yes";
+        answers[1] = "No";
+        answers[2] = "No";
+        answers[3] = "No";
+        answers[4] = "Yes";
+        answers[5] = "Yes";
         Person person = new Person(1, "04/10/17", "ART", "MATH_CMDA", "OTHER_US", answers);
         song.addData(person);
-        assertEquals(song.getTracker().getHeard(), 1);
-        assertEquals(song.getTracker().getLiked(), 0);
+        assertEquals(1, song.getTracker().getHeard());
+        assertEquals(0, song.getTracker().getLiked());
+        assertEquals(0, song2.getTracker().getHeard());
+        assertEquals(0, song2.getTracker().getLiked());
+        assertEquals(1, song3.getTracker().getHeard());
+        assertEquals(1, song3.getTracker().getLiked());
     }
     
 }

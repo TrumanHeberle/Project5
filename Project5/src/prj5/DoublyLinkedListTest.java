@@ -228,26 +228,6 @@ public class DoublyLinkedListTest extends TestCase {
         assertEquals(1, list.size());
     }
     
-    /*public void testRemoveItem() {
-        assertFalse(list.remove("data"));
-        
-        list.addToBack("data");
-        assertTrue(list.remove("data"));
-        assertEquals(0, list.size());
-        
-        list.addToBack("data");
-        list.addToBack("notdata");
-        assertTrue(list.remove("data"));
-        assertEquals(1, list.size());
-        
-        list = new DoublyLinkedList<String>();
-        list.addToBack("data");
-        list.addToBack("data");
-        assertTrue(list.remove("data"));
-        assertEquals(1, list.size());
-        assertTrue(list.contains("data"));
-    }*/
-    
     /**
      * Tests the get method
      * Tests exception when index is illegal
@@ -334,5 +314,21 @@ public class DoublyLinkedListTest extends TestCase {
         }
         assertNull(next);
         assertTrue(ex instanceof NoSuchElementException);
+    }
+    
+    /**
+     * Tests the toArray method
+     */
+    public void testToArray() {
+        list.addToBack("String 1");
+        list.addToBack("String 2");
+        list.addToBack("String 3");
+        list.addToBack("String 4");
+        
+        Object[] arr = list.toArray();
+        assertEquals("String 1", arr[0]);
+        assertEquals("String 2", arr[1]);
+        assertEquals("String 3", arr[2]);
+        assertEquals("String 4", arr[3]);
     }
 }

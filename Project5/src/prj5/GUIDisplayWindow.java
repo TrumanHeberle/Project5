@@ -37,7 +37,7 @@ public class GUIDisplayWindow {
     private Button region;
     private Button quit;
     
-    public GUIDisplayWindow(String peopleFile, String songFile) {
+    public GUIDisplayWindow() {
         window = new Window();
         
         prev = new Button("Prev");

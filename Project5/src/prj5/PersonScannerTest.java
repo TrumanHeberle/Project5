@@ -12,20 +12,23 @@ import student.TestCase;
  */
 public class PersonScannerTest extends TestCase {
     private PersonScanner ps;
+    private DoublyLinkedList<Person> list;
     
     /**
      * Runs before each test case
      */
     public void setUp() {
         ps = new PersonScanner();
+        list = new DoublyLinkedList<Person>();
     }
     
     public void testScanPeople() {
         try {
             ps.scanPeople("MusicSurveyDataTest1.csv");
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            e.getMessage();
         }
+        
+        list = ps.getPeopleList();
     }
 }

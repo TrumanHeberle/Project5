@@ -17,10 +17,9 @@ public class Input {
     public static void main(String[] args) throws FileNotFoundException {
         PersonScanner personScanner = new PersonScanner(args[0]);
         SongScanner songScanner = new SongScanner(args[1]);
-        GUIDisplayWindow gui;
-        gui = new GUIDisplayWindow();
-        LinkedSongList<Song> songs = songScanner.getSongList().sortByTitle();
-        songs.sortByTitle();
+        GUIDisplayWindow gui = new GUIDisplayWindow();
+        songScanner.sortByTitle();
+        LinkedSongList<Song> songs = songScanner.getSongList();
         for (int i = 0; i < songs.size(); i++)
         {
             Song currentSong = songs.getEntry(i);

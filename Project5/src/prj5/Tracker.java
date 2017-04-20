@@ -97,17 +97,25 @@ public class Tracker {
      *         song
      */
     public int getHeardByHobby(HobbyEnum hobby) {
-        switch (hobby) {
-            case ART:
-                return heardArt;
-            case READ:
-                return heardRead;
-            case SPORTS:
-                return heardSports;
-            case MUSIC:
-                return heardMusic;
-            default:
-                throw new IllegalArgumentException("That enum is invalid");
+        if (hobby.equals(ART))
+        {
+            return heardArt;
+        }
+        else if (hobby.equals(READ))
+        {
+            return heardRead;
+        }
+        else if (hobby.equals(SPORTS))
+        {
+            return heardSports;
+        }
+        else if (hobby.equals(MUSIC))
+        {
+            return heardMusic;
+        }
+        else
+        {
+            throw new IllegalArgumentException("That enum is invalid");
         }
     }
 
@@ -121,17 +129,25 @@ public class Tracker {
      *         song
      */
     public int getLikedByHobby(HobbyEnum hobby) {
-        switch (hobby) {
-            case ART:
-                return likedArt;
-            case READ:
-                return likedRead;
-            case SPORTS:
-                return likedSports;
-            case MUSIC:
-                return likedMusic;
-            default:
-                throw new IllegalArgumentException("That enum is invalid");
+        if (hobby.equals(ART))
+        {
+            return likedArt;
+        }
+        else if (hobby.equals(READ))
+        {
+            return likedRead;
+        }
+        else if (hobby.equals(SPORTS))
+        {
+            return likedSports;
+        }
+        else if (hobby.equals(MUSIC))
+        {
+            return likedMusic;
+        }
+        else
+        {
+            throw new IllegalArgumentException("That enum is invalid");
         }
     }
 
@@ -145,17 +161,25 @@ public class Tracker {
      *         song
      */
     public int getHeardByMajor(MajorEnum major) {
-        switch (major) {
-            case COMPUTER_SCIENCE:
-                return heardCompSci;
-            case OTHER_ENGINEERING:
-                return heardOtherEnge;
-            case MATH_CMDA:
-                return heardMathCMDA;
-            case OTHER:
-                return heardOther;
-            default:
-                throw new IllegalArgumentException("That enum is invalid");
+        if (major.equals(COMPUTER_SCIENCE))
+        {
+            return heardCompSci;
+        }
+        else if (major.equals(OTHER_ENGINEERING))
+        {
+            return heardOtherEnge;
+        }
+        else if (major.equals(MATH_CMDA))
+        {
+            return heardMathCMDA;
+        }
+        else if (major.equals(OTHER))
+        {
+            return heardOther;
+        }
+        else
+        {
+            throw new IllegalArgumentException("That enum is invalid");
         }
     }
 
@@ -169,17 +193,25 @@ public class Tracker {
      *         song
      */
     public int getLikedByMajor(MajorEnum major) {
-        switch (major) {
-            case COMPUTER_SCIENCE:
-                return likedCompSci;
-            case OTHER_ENGINEERING:
-                return likedOtherEnge;
-            case MATH_CMDA:
-                return likedMathCMDA;
-            case OTHER:
-                return likedOther;
-            default:
-                throw new IllegalArgumentException("That enum is invalid");
+        if (major.equals(COMPUTER_SCIENCE))
+        {
+            return likedCompSci;
+        }
+        else if (major.equals(OTHER_ENGINEERING))
+        {
+            return likedOthlikeerEnge;
+        }
+        else if (major.equals(MATH_CMDA))
+        {
+            return likedMathCMDA;
+        }
+        else if (major.equals(OTHER))
+        {
+            return likedOther;
+        }
+        else
+        {
+            throw new IllegalArgumentException("That enum is invalid");
         }
     }
 
@@ -193,17 +225,25 @@ public class Tracker {
      *         song
      */
     public int getHeardByRegion(RegionEnum region) {
-        switch (region) {
-            case NORTH_EAST_US:
-                return heardNE;
-            case SOUTH_EAST_US:
-                return heardSE;
-            case OTHER_US:
-                return heardOtherUS;
-            case OUTSIDE_US:
-                return heardOutside;
-            default:
-                throw new IllegalArgumentException("That enum is invalid");
+        if (region.equals(NORTH_EAST_US))
+        {
+            return heardNE;
+        }
+        else if (region.equals(SOUTH_EAST_US))
+        {
+            return heardSE;
+        }
+        else if (region.equals(OTHER_US))
+        {
+            return heardOtherUS;
+        }
+        else if (region.equals(OUTSIDE_US))
+        {
+            return heardOutside;
+        }
+        else
+        {
+            throw new IllegalArgumentException("That enum is invalid");
         }
     }
 
@@ -217,17 +257,25 @@ public class Tracker {
      *         song
      */
     public int getLikedByRegion(RegionEnum region) {
-        switch (region) {
-            case NORTH_EAST_US:
-                return likedNE;
-            case SOUTH_EAST_US:
-                return likedSE;
-            case OTHER_US:
-                return likedOtherUS;
-            case OUTSIDE_US:
-                return likedOutside;
-            default:
-                throw new IllegalArgumentException("That enum is invalid");
+        if (region.equals(NORTH_EAST_US))
+        {
+            return likedNE;
+        }
+        else if (region.equals(SOUTH_EAST_US))
+        {
+            return likedSE;
+        }
+        else if (region.equals(OTHER_US))
+        {
+            return likedOtherUS;
+        }
+        else if (region.equals(OUTSIDE_US))
+        {
+            return likedOutside;
+        }
+        else
+        {
+            throw new IllegalArgumentException("That enum is invalid");
         }
     }
 
@@ -245,55 +293,56 @@ public class Tracker {
      */
     public void addHear(HobbyEnum hobby, MajorEnum major, RegionEnum region) {
         heard++;
-        switch (hobby) {
-            case ART:
-                heardArt++;
-                break;
-            case READ:
-                heardRead++;
-                break;
-            case SPORTS:
-                heardSports++;
-                break;
-            case MUSIC:
-                heardMusic++;
-                break;
-            default:
-                break;
+        if (hobby.equals(ART))
+        {
+            heardArt++;
+        }
+        else if (hobby.equals(READ))
+        {
+            heardRead++;
+        }
+        else if (hobby.equals(SPORTS))
+        {
+            heardSports++;
+        }
+        else if (hobby.equals(MUSIC))
+        {
+            heardMusic++;
         }
 
-        switch (major) {
-            case COMPUTER_SCIENCE:
-                heardCompSci++;
-                break;
-            case OTHER_ENGINEERING:
-                heardOtherEnge++;
-                break;
-            case MATH_CMDA:
-                heardMathCMDA++;
-                break;
-            case OTHER:
-                heardOther++;
-                break;
-            default:
-                break;
+        if (major.equals(COMPUTER_SCIENCE))
+        {
+            heardCompSci++;
+        }
+        else if (major.equals(OTHER_ENGINEERING))
+        {
+            heardOtherEnge++;
+        }
+        else if (major.equals(MATH_CMDA))
+        {
+            heardMathCMDA++;
+        }
+        else if (major.equals(OTHER))
+        {
+            heardOther++;
         }
 
-        switch (region) {
-            case NORTH_EAST_US:
-                heardNE++;
-                break;
-            case SOUTH_EAST_US:
-                heardSE++;
-                break;
-            case OTHER_US:
-                heardOtherUS++;
-                break;
-            case OUTSIDE_US:
-                heardOutside++;
-                break;
-            default:
-                break;
+        if (region.equals(NORTH_EAST_US))
+        {
+            heardNE++;
+        }
+        else if (region.equals(SOUTH_EAST_US))
+        {
+            heardSE++;
+        }
+        else if (region.equals(OTHER_US))
+        {
+            heardOtherUS++;
+        }
+        else if (region.equals(OUTSIDE_US))
+        {
+            heardOutside++;
+        }
         }
     }
 
@@ -311,55 +360,55 @@ public class Tracker {
      */
     public void addLike(HobbyEnum hobby, MajorEnum major, RegionEnum region) {
         liked++;
-        switch (hobby) {
-            case ART:
-                likedArt++;
-                break;
-            case READ:
-                likedRead++;
-                break;
-            case SPORTS:
-                likedSports++;
-                break;
-            case MUSIC:
-                likedMusic++;
-                break;
-            default:
-                break;
+        if (hobby.equals(ART))
+        {
+            likedArt++;
+        }
+        else if (hobby.equals(READ))
+        {
+            likedRead++;
+        }
+        else if (hobby.equals(SPORTS))
+        {
+            likedSports++;
+        }
+        else if (hobby.equals(MUSIC))
+        {
+            likedMusic++;
         }
 
-        switch (major) {
-            case COMPUTER_SCIENCE:
-                likedCompSci++;
-                break;
-            case OTHER_ENGINEERING:
-                likedOtherEnge++;
-                break;
-            case MATH_CMDA:
-                likedMathCMDA++;
-                break;
-            case OTHER:
-                likedOther++;
-                break;
-            default:
-                break;
+        if (major.equals(COMPUTER_SCIENCE))
+        {
+            likedCompSci++;
+        }
+        else if (major.equals(OTHER_ENGINEERING))
+        {
+            likedOthlikeerEnge++;
+        }
+        else if (major.equals(MATH_CMDA))
+        {
+            likedMathCMDA++;
+        }
+        else if (major.equals(OTHER))
+        {
+            likedOther++;
         }
 
-        switch (region) {
-            case NORTH_EAST_US:
-                likedNE++;
-                break;
-            case SOUTH_EAST_US:
-                likedSE++;
-                break;
-            case OTHER_US:
-                likedOtherUS++;
-                break;
-            case OUTSIDE_US:
-                likedOutside++;
-                break;
-            default:
-                break;
+        if (region.equals(NORTH_EAST_US))
+        {
+            likedNE++;
+        }
+        else if (region.equals(SOUTH_EAST_US))
+        {
+            likedSE++;
+        }
+        else if (region.equals(OTHER_US))
+        {
+            likedOtherUS++;
+        }
+        else if (region.equals(OUTSIDE_US))
+        {
+            likedOutside++;
         }
     }
 }

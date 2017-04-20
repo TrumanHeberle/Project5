@@ -5,18 +5,16 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
- * Scans a song data file and adds songs to a song list
  * 
- * @author trumanh
- * @version 4.19.2017
+ * @author AshlynUser
+ * @version 2017.04.19
  */
 public class SongScanner {
     private LinkedSongList<Song> songList;
     private int songNum;
 
-
     /**
-     * Creates a new SongScanner object
+     * constructor
      */
     public SongScanner() {
         songNum = 0;
@@ -25,12 +23,9 @@ public class SongScanner {
 
 
     /**
-     * Creates a new SongScanner with then adds songs from the file
-     * 
+     * constructor with param
      * @param filename
-     *            The song data file name
      * @throws FileNotFoundException
-     *             If the file can't be found
      */
     public SongScanner(String filename) throws FileNotFoundException {
         this();
@@ -39,39 +34,56 @@ public class SongScanner {
 
 
     /**
-     * Scans the song file and adds songs accordingly
-     * 
+     * scans the file of songs
      * @param songFile
-     *            The name of the song data file
+     * @return 
      * @throws FileNotFoundException
-     *             If the song file can't be found
      */
-    public void scanSongs(String songFile) throws FileNotFoundException {
+    public LinkedSongList<Song> scanSongs(String songFile) throws FileNotFoundException {
+        try {
         Scanner file = new Scanner(new File(songFile));
-
-        // Passes header
+        int index = 0;
         file.nextLine();
-        // Scans file
-        while (file.hasNextLine()) {
-            String[] values = file.nextLine().split(",");
-
-            String title = values[0];
-            String artist = values[1];
-            int year = Integer.parseInt(values[2]);
-            String genre = values[3];
-
-            Song song = new Song(title, artist, year, genre, songNum);
-            songList.addToBack(song);
-            songNum++;
+        while (file.hasNextLine())
+        {
+            String[] songArray = file.nextLine().split(" *, *");
+            for (int i = 0; i < songArray.length; i+=4)
+            {
+                songList.addToBack(new Song(songArray[i], songArray[i + 1],
+                    Integer.valueOf(songArray[i + 2]), songArray[i + 3], index));
+                index += 2;
+            }
         }
+        // Passes header
+        //if (file.hasNextLine()) {
+          //  file.nextLine();
+        //}
+        // Scans file
+        //while (file.hasNextLine()) {
+          //  String[] values = file.nextLine().split(",");
+            
+            //String title = values[0];
+            //String artist = values[1];
+            //int year = Integer.parseInt(values[2]);
+            //String genre = values[3];
+            
+          //  Song song = new Song(title, artist, year, genre, songNum);
+           // songList.addToBack(song);
+           // songNum++;
+        //}
         file.close();
+        }
+        catch (FileNotFoundException e)
+        {
+            System.out.println("File name is invalid");
+        }
+        return songList;
     }
 
 
     /**
-     * Returns the LinkedSongList containing all the songs
-     * 
-     * @return The LinkedSongList containing all the songs
+     * returns the list of songs
+     * @return
      */
     public LinkedSongList<Song> getSongList() {
         return songList;

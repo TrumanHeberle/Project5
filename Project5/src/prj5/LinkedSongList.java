@@ -11,9 +11,9 @@ import java.util.Iterator;
  */
 public class LinkedSongList<T> extends DoublyLinkedList<T> {
     
-    public DoublyLinkedList<Song> sortByTitle()
+    public LinkedSongList<Song> sortByTitle()
     {
-        DoublyLinkedList<Song> titleList = new DoublyLinkedList<>();
+        LinkedSongList<Song> titleList = new LinkedSongList<>();
         CompareSongTitle comparer = new CompareSongTitle();
         @SuppressWarnings("unchecked")
         Iterator<Song> iterator = (Iterator<Song>)this.iterator();
@@ -32,12 +32,12 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
         return titleList;
     }
     
-    public DoublyLinkedList<Song> sortByArtist()
+    public LinkedSongList<Song> sortByArtist()
     {
-        DoublyLinkedList<Song> artistList = new DoublyLinkedList<>();
+        LinkedSongList<Song> artistList = new LinkedSongList<>();
         CompareSongArtist comparer = new CompareSongArtist();
         @SuppressWarnings("unchecked")
-        Iterator<Song> iterator = (Iterator<Song>)this.getIterator();
+        Iterator<Song> iterator = (Iterator<Song>)this.iterator();
         while (iterator.hasNext())
         {
             //should be length possibly?
@@ -53,12 +53,12 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
         return artistList;
     }
     
-    public DoublyLinkedList<Song> sortByYear()
+    public LinkedSongList<Song> sortByYear()
     {
-        DoublyLinkedList<Song> yearList = new DoublyLinkedList<>();
+        LinkedSongList<Song> yearList = new LinkedSongList<>();
         CompareSongYear comparer = new CompareSongYear();
         @SuppressWarnings("unchecked")
-        Iterator<Song> iterator = (Iterator<Song>)this.getIterator();
+        Iterator<Song> iterator = (Iterator<Song>)this.iterator();
         while (iterator.hasNext())
         {
             //should be length possibly?
@@ -74,12 +74,12 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
         return yearList;
     }
     
-    public DoublyLinkedList<Song> sortByGenre()
+    public LinkedSongList<Song> sortByGenre()
     {
-        DoublyLinkedList<Song> genreList = new DoublyLinkedList<>();
+        LinkedSongList<Song> genreList = new LinkedSongList<>();
         CompareSongGenre comparer = new CompareSongGenre();
         @SuppressWarnings("unchecked")
-        Iterator<Song> iterator = (Iterator<Song>)this.getIterator();
+        Iterator<Song> iterator = (Iterator<Song>)this.iterator();
         while (iterator.hasNext())
         {
             //should be length possibly?

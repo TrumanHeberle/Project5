@@ -48,6 +48,66 @@ public class DoublyLinkedList<T> implements Iterable<T> {
     public int size() {
         return size;
     }
+    
+    /**
+     * returns a list of a certain major
+     * @return a new list
+     */
+    public DoublyLinkedList<Person> getChosenMajorList(MajorEnum major)
+    {
+        DoublyLinkedList<Person> result = new DoublyLinkedList<Person>();
+        @SuppressWarnings("unchecked")
+        Iterator<Person> iterator = (Iterator<Person>)this.iterator();
+        while (iterator.hasNext())
+        {
+            Person currentPerson = iterator.next();
+            if (currentPerson.getMajor().equals(major))
+            {
+                result.addToBack(currentPerson);
+            }
+        }
+        return result;
+    }
+    
+    /**
+     * returns a list of a certain hobby
+     * @return a new list
+     */
+    public DoublyLinkedList<Person> getChosenHobbyList(HobbyEnum hobby)
+    {
+        DoublyLinkedList<Person> result = new DoublyLinkedList<Person>();
+        @SuppressWarnings("unchecked")
+        Iterator<Person> iterator = (Iterator<Person>)this.iterator();
+        while (iterator.hasNext())
+        {
+            Person currentPerson = iterator.next();
+            if (currentPerson.getMajor().equals(hobby))
+            {
+                result.addToBack(currentPerson);
+            }
+        }
+        return result;
+    }
+    
+    /**
+     * returns a list of a certain region
+     * @return a new list
+     */
+    public DoublyLinkedList<Person> getChosenRegionList(RegionEnum region)
+    {
+        DoublyLinkedList<Person> result = new DoublyLinkedList<Person>();
+        @SuppressWarnings("unchecked")
+        Iterator<Person> iterator = (Iterator<Person>)this.iterator();
+        while (iterator.hasNext())
+        {
+            Person currentPerson = iterator.next();
+            if (currentPerson.getMajor().equals(region))
+            {
+                result.addToBack(currentPerson);
+            }
+        }
+        return result;
+    }
 
 
     /**
@@ -248,15 +308,16 @@ public class DoublyLinkedList<T> implements Iterable<T> {
     }
 
     /**
-     * Returns a generic array of all the data in the list
+     * Returns an object array of all the data in the list
      * @return The generic array of all the data in the list
      */
-    public T[] toArray() {
-        @SuppressWarnings("unchecked")
-        T[] arr = (T[])new Object[this.size];
-        
-        for (int i = 0; i < this.size; i++) {
-            arr[i] = this.getEntry(i);
+    public Object[] toArray() {
+        Object[] arr = new Object[this.size];
+        if (size != 0)
+        {
+            for (int i = 0; i < this.size; i++) {
+                arr[i] = this.getEntry(i);
+            }
         }
         return arr;
     }

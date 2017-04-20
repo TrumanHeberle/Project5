@@ -131,18 +131,19 @@ public class Person {
      */
     private HobbyEnum setHobby(String hobbyString) {
         hobbyString = hobbyString.toLowerCase();
-        switch (hobbyString) {
-            case "reading":
-                return HobbyEnum.READ;
-            case "sports":
-                return HobbyEnum.SPORTS;
-            case "music":
-                return HobbyEnum.MUSIC;
-            case "art":
-                return HobbyEnum.ART;
-            default:
-                return null;
+        if (hobbyString.equals("reading")) {
+            return HobbyEnum.READ;
         }
+        if (hobbyString.equals("sports")) {
+            return HobbyEnum.SPORTS;
+        }
+        if (hobbyString.equals("music")) {
+            return HobbyEnum.MUSIC;
+        }
+        if (hobbyString.equals("art")) {
+            return HobbyEnum.ART;
+        }
+        return null;
     }
 
 
@@ -155,18 +156,19 @@ public class Person {
      */
     private MajorEnum setMajor(String majorString) {
         majorString = majorString.toLowerCase();
-        switch (majorString) {
-            case "computer science":
-                return MajorEnum.COMPUTER_SCIENCE;
-            case "math or cmda":
-                return MajorEnum.MATH_CMDA;
-            case "other engineering":
-                return MajorEnum.OTHER_ENGINEERING;
-            case "other":
-                return MajorEnum.OTHER;
-            default:
-                return null;
+        if (majorString.equals("computer science")) {
+            return MajorEnum.COMPUTER_SCIENCE;
         }
+        if (majorString.equals("math or cmda")) {
+            return MajorEnum.MATH_CMDA;
+        }
+        if (majorString.equals("other")) {
+            return MajorEnum.OTHER;
+        }
+        if (majorString.equals("other engineering")) {
+            return MajorEnum.OTHER_ENGINEERING;
+        }
+        return null;
     }
 
 
@@ -179,17 +181,18 @@ public class Person {
      */
     private RegionEnum setRegion(String regionString) {
         regionString = regionString.toLowerCase();
-        switch (regionString) {
-            case "southeast":
-                return RegionEnum.SOUTH_EAST_US;
-            case "northeast":
-                return RegionEnum.NORTH_EAST_US;
-            case "united states (other than southeast or northwest)":
-                return RegionEnum.OTHER_US;
-            case "outside of united states":
-                return RegionEnum.OUTSIDE_US;
-            default:
-                return null;
+        if (regionString.equals("southeast")) {
+            return RegionEnum.SOUTH_EAST_US;
         }
+        if (regionString.equals("northeast")) {
+            return RegionEnum.NORTH_EAST_US;
+        }
+        if (regionString.equals("united states (other than southeast or northwest)")) {
+            return RegionEnum.OTHER_US;
+        }
+        if (regionString.equals("outside of united states")) {
+            return RegionEnum.OUTSIDE_US;
+        }
+        return null;
     }
 }

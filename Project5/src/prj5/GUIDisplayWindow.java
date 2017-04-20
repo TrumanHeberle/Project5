@@ -16,15 +16,6 @@ import CS2114.WindowSide;
  */
 public class GUIDisplayWindow {
     private Window window;
-    private Entry leftTop;
-    private Entry middleTop;
-    private Entry rightTop;
-    private Entry leftMiddle;
-    private Entry middleMiddle;
-    private Entry rightMiddle;
-    private Entry leftBottom;
-    private Entry middleBottom;
-    private Entry rightBottom;
     private PersonScanner personScanner;
     private SongScanner songScanner;
     private DoublyLinkedList<Person> people;
@@ -40,6 +31,9 @@ public class GUIDisplayWindow {
     private Button region;
     private Button quit;
     
+    /**
+     * Creates a new GUIDisplayWindow
+     */
     public GUIDisplayWindow() {
         window = new Window();
         window.setSize(800, 500);
@@ -102,7 +96,6 @@ public class GUIDisplayWindow {
     
     /**
      * creates a default glyph
-     * 
      */
     public void createGlyph()
     {
@@ -177,33 +170,73 @@ public class GUIDisplayWindow {
         window.moveToFront(likes);
     }
     
+    /**
+     * Runs when the button is pressed
+     * @param button The prev button
+     */
     public void clickedPrev(Button button) {
     }
     
+    /**
+     * Runs when the button is pressed
+     * @param button The next button
+     */
     public void clickedNext(Button button) {
     }
     
+    /**
+     * Runs when the button is pressed
+     * @param button The artist button
+     */
     public void clickedArtist(Button button) {
     }
     
+    /**
+     * Runs when the button is pressed
+     * @param button The title button
+     */
     public void clickedTitle(Button button) {
     }
     
+    /**
+     * Runs when the button is pressed
+     * @param button The year button
+     */
     public void clickedYear(Button button) {
     }
     
+    /**
+     * Runs when the button is pressed
+     * @param button The genre button
+     */
     public void clickedGenre(Button button) {
     }
     
+    /**
+     * Runs when the button is pressed
+     * @param button The hobby button
+     */
     public void clickedHobby(Button button) {
     }
     
+    /**
+     * Runs when the button is pressed
+     * @param button The major button
+     */
     public void clickedMajor(Button button) {
     }
     
+    /**
+     * Runs when the button is pressed
+     * @param button The region button
+     */
     public void clickedRegion(Button button) {
     }
     
+    /**
+     * Runs when the button is pressed
+     * @param button The quit button
+     */
     public void clickedQuit(Button button) {
         System.exit(0);
     }

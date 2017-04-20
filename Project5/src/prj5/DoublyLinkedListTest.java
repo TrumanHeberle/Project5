@@ -228,11 +228,7 @@ public class DoublyLinkedListTest extends TestCase {
         assertEquals(1, list.size());
     }
     
-    /**
-     * Tests the remove method (by data)
-     * Test a boolean is returned
-     */
-    public void testRemoveItem() {
+    /*public void testRemoveItem() {
         assertFalse(list.remove("data"));
         
         list.addToBack("data");
@@ -250,7 +246,7 @@ public class DoublyLinkedListTest extends TestCase {
         assertTrue(list.remove("data"));
         assertEquals(1, list.size());
         assertTrue(list.contains("data"));
-    }
+    }*/
     
     /**
      * Tests the get method

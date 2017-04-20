@@ -5,6 +5,12 @@ import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * Scans a file of people's data and adds them to a list
+ * 
+ * @author trumanh
+ * @version 4.19.2017
+ */
 public class PersonScanner {
     private DoublyLinkedList<Person> peopleList;
 
@@ -42,9 +48,7 @@ public class PersonScanner {
     public void scanPeople(String fileName) throws FileNotFoundException {
         Scanner scan = new Scanner(new File(fileName));
         // Skips Header
-        if (scan.hasNextLine()) {
-            scan.nextLine();
-        }
+        scan.nextLine();
 
         // Searches through list
         while (scan.hasNextLine()) {

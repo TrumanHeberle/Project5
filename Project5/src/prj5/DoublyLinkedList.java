@@ -256,8 +256,7 @@ public class DoublyLinkedList<T> implements Iterable<T> {
      * @param <T>
      *            The type of data stored in the Node
      */
-    @SuppressWarnings("hiding")
-    private class Node<T> extends DoublyLinkedList<T> {
+    private class Node<T1> extends DoublyLinkedList<T> {
         private T data;
         private Node<T> next;
         private Node<T> prev;
@@ -358,10 +357,11 @@ public class DoublyLinkedList<T> implements Iterable<T> {
          * @param currentNode
          *            the specified Node
          */
+        @SuppressWarnings("unchecked")
         public void addAfter(Node<T> currentNode) {
             this.setNext(currentNode.next());
-            currentNode.next().setPrevious((Node<T>)this); // Error Webcat
-            currentNode.setNext((Node<T>)this); // Error Webcat
+            currentNode.next().setPrevious((DoublyLinkedList<T>.Node<T>)this);
+            currentNode.setNext((DoublyLinkedList<T>.Node<T>)this);
             this.setPrevious(currentNode);
         }
     }

@@ -36,4 +36,18 @@ public class SongScannerTest extends TestCase {
 
         list = ss.getSongList();
     }
+    
+    /**
+     * Tests the auto constructor
+     */
+    public void testConstructor() {
+        try {
+            ss = new SongScanner("SongListTest1.csv");
+        }
+        catch (FileNotFoundException e) {
+            e.getMessage();
+        }
+        
+        list = ss.getSongList();
+    }
 }

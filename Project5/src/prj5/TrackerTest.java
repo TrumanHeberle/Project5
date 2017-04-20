@@ -23,25 +23,25 @@ public class TrackerTest extends TestCase {
       */
      public void testAddHear()
      {
-          track.addHear(ART, COMPUTER_SCIENCE, NORTH_EAST_US);
-          track.addHear(READ, OTHER_ENGINEERING, SOUTH_EAST_US);
-          track.addHear(SPORTS, MATH_CMDA, OTHER_US);
-          track.addHear(MUSIC, OTHER, OUTSIDE_US);
+          track.addHear(HobbyEnum.ART, MajorEnum.COMPUTER_SCIENCE, RegionEnum.NORTH_EAST_US);
+          track.addHear(HobbyEnum.READ, MajorEnum.OTHER_ENGINEERING, RegionEnum.SOUTH_EAST_US);
+          track.addHear(HobbyEnum.SPORTS, MajorEnum.MATH_CMDA, RegionEnum.OTHER_US);
+          track.addHear(HobbyEnum.MUSIC, MajorEnum.OTHER, RegionEnum.OUTSIDE_US);
           
-          assertEquals(track.getHeardByRegion(NORTH_EAST_US), 1);
-          assertEquals(track.getHeardByRegion(SOUTH_EAST_US), 1);
-          assertEquals(track.getHeardByRegion(OUTHER_US), 1);
-          assertEquals(track.getHeardByRegion(OUTSIDE_US), 1);
+          assertEquals(track.getHeardByRegion(RegionEnum.NORTH_EAST_US), 1);
+          assertEquals(track.getHeardByRegion(RegionEnum.SOUTH_EAST_US), 1);
+          assertEquals(track.getHeardByRegion(RegionEnum.OTHER_US), 1);
+          assertEquals(track.getHeardByRegion(RegionEnum.OUTSIDE_US), 1);
           
-          assertEquals(track.getHeardByMajor(COMPUTER_SCIENCE), 1);
-          assertEquals(track.getHeardByMajor(OTHER_ENGINEERING), 1);
-          assertEquals(track.getHeardByMajor(MATH_CMDA), 1);
-          assertEquals(track.getHeardByMajor(OTHER), 1);
+          assertEquals(track.getHeardByMajor(MajorEnum.COMPUTER_SCIENCE), 1);
+          assertEquals(track.getHeardByMajor(MajorEnum.OTHER_ENGINEERING), 1);
+          assertEquals(track.getHeardByMajor(MajorEnum.MATH_CMDA), 1);
+          assertEquals(track.getHeardByMajor(MajorEnum.OTHER), 1);
           
-          assertEquals(track.getHeardByHobby(ART), 1);
-          assertEquals(track.getHeardByHobby(READ), 1);
-          assertEquals(track.getHeardByHobby(SPORTS), 1);
-          assertEquals(track.getHeardByHobby(MUSIC), 1);
+          assertEquals(track.getHeardByHobby(HobbyEnum.ART), 1);
+          assertEquals(track.getHeardByHobby(HobbyEnum.READ), 1);
+          assertEquals(track.getHeardByHobby(HobbyEnum.SPORTS), 1);
+          assertEquals(track.getHeardByHobby(HobbyEnum.MUSIC), 1);
      }
      
      /**
@@ -49,24 +49,24 @@ public class TrackerTest extends TestCase {
       */
      public void testAddLike()
      {
-          track.addLike(ART, COMPUTER_SCIENCE, NORTH_EAST_US);
-          track.addLike(READ, OTHER_ENGINEERING, SOUTH_EAST_US);
-          track.addLike(SPORTS, MATH_CMDA, OTHER_US);
-          track.addLike(MUSIC, OTHER, OUTSIDE_US);
+          track.addLike(HobbyEnum.ART, MajorEnum.COMPUTER_SCIENCE, RegionEnum.NORTH_EAST_US);
+          track.addLike(HobbyEnum.READ, MajorEnum.OTHER_ENGINEERING, RegionEnum.SOUTH_EAST_US);
+          track.addLike(HobbyEnum.SPORTS, MajorEnum.MATH_CMDA, RegionEnum.OTHER_US);
+          track.addLike(HobbyEnum.MUSIC, MajorEnum.OTHER, RegionEnum.OUTSIDE_US);
           
-          assertEquals(track.getLikedByRegion(NORTH_EAST_US), 1);
-          assertEquals(track.getLikedByRegion(SOUTH_EAST_US), 1);
-          assertEquals(track.getLikedByRegion(OUTHER_US), 1);
-          assertEquals(track.getLikedByRegion(OUTSIDE_US), 1);
+          assertEquals(track.getLikedByRegion(RegionEnum.NORTH_EAST_US), 1);
+          assertEquals(track.getLikedByRegion(RegionEnum.SOUTH_EAST_US), 1);
+          assertEquals(track.getLikedByRegion(RegionEnum.OTHER_US), 1);
+          assertEquals(track.getLikedByRegion(RegionEnum.OUTSIDE_US), 1);
           
-          assertEquals(track.getLikedByMajor(COMPUTER_SCIENCE), 1);
-          assertEquals(track.getLikedByMajor(OTHER_ENGINEERING), 1);
-          assertEquals(track.getLikedByMajor(MATH_CMDA), 1);
-          assertEquals(track.getLikedByMajor(OTHER), 1);
+          assertEquals(track.getLikedByMajor(MajorEnum.COMPUTER_SCIENCE), 1);
+          assertEquals(track.getLikedByMajor(MajorEnum.OTHER_ENGINEERING), 1);
+          assertEquals(track.getLikedByMajor(MajorEnum.MATH_CMDA), 1);
+          assertEquals(track.getLikedByMajor(MajorEnum.OTHER), 1);
           
-          assertEquals(track.getLikedByHobby(ART), 1);
-          assertEquals(track.getLikedByHobby(READ), 1);
-          assertEquals(track.getLikedByHobby(SPORTS), 1);
-          assertEquals(track.getLikedByHobby(MUSIC), 1);
+          assertEquals(track.getLikedByHobby(HobbyEnum.ART), 1);
+          assertEquals(track.getLikedByHobby(HobbyEnum.READ), 1);
+          assertEquals(track.getLikedByHobby(HobbyEnum.SPORTS), 1);
+          assertEquals(track.getLikedByHobby(HobbyEnum.MUSIC), 1);
      }
 }

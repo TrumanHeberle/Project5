@@ -1,4 +1,3 @@
-
 package prj5;
 
 import java.io.FileNotFoundException;
@@ -14,12 +13,23 @@ public class Input {
      * @param args the person file and song file in that order
      * @throws FileNotFoundException 
      */
-    public static void main(String[] args) throws FileNotFoundException {
-        PersonScanner personScanner = new PersonScanner(args[0]);
-        SongScanner songScanner = new SongScanner(args[1]);
-        GUIDisplayWindow gui = new GUIDisplayWindow();
-        songScanner.sortByTitle();
-        LinkedSongList<Song> songs = songScanner.getSongList();
+    public static void main(String[] args) {
+        try {
+            PersonScanner personScanner = new PersonScanner(args[0]);
+        }
+        catch (FileNotFoundException e) {
+            e.getMessage();
+        }
+        SongScanner songScanner = null;
+        try {
+            songScanner = new SongScanner(args[1]);
+        }
+        catch (FileNotFoundException e) {
+            e.getMessage();
+        }
+        GUIDisplayWindow gui;
+        gui = new GUIDisplayWindow();
+        LinkedSongList<Song> songs = songScanner.getSongList().sortByTitle();
         for (int i = 0; i < songs.size(); i++)
         {
             Song currentSong = songs.getEntry(i);

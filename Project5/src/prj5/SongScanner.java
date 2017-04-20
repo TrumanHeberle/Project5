@@ -50,9 +50,7 @@ public class SongScanner {
         Scanner file = new Scanner(new File(songFile));
 
         // Passes header
-        if (file.hasNextLine()) {
-            file.nextLine();
-        }
+        file.nextLine();
         // Scans file
         while (file.hasNextLine()) {
             String[] values = file.nextLine().split(",");
@@ -61,10 +59,10 @@ public class SongScanner {
             String artist = values[1];
             int year = Integer.parseInt(values[2]);
             String genre = values[3];
-            songNum++;
 
             Song song = new Song(title, artist, year, genre, songNum);
             songList.addToBack(song);
+            songNum++;
         }
         file.close();
     }

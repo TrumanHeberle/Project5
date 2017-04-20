@@ -35,4 +35,18 @@ public class PersonScannerTest extends TestCase {
 
         list = ps.getPeopleList();
     }
+    
+    /**
+     * Tests the auto constructor
+     */
+    public void testConstructor() {
+        try {
+            ps = new PersonScanner("MusicSurveyDataTest1.csv");
+        }
+        catch (FileNotFoundException e) {
+            e.getMessage();
+        }
+        
+        list = ps.getPeopleList();
+    }
 }

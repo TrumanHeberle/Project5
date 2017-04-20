@@ -97,19 +97,19 @@ public class Tracker {
      *         song
      */
     public int getHeardByHobby(HobbyEnum hobby) {
-        if (hobby.equals(ART))
+        if (hobby.equals(HobbyEnum.ART))
         {
             return heardArt;
         }
-        else if (hobby.equals(READ))
+        else if (hobby.equals(HobbyEnum.READ))
         {
             return heardRead;
         }
-        else if (hobby.equals(SPORTS))
+        else if (hobby.equals(HobbyEnum.SPORTS))
         {
             return heardSports;
         }
-        else if (hobby.equals(MUSIC))
+        else if (hobby.equals(HobbyEnum.MUSIC))
         {
             return heardMusic;
         }
@@ -129,19 +129,19 @@ public class Tracker {
      *         song
      */
     public int getLikedByHobby(HobbyEnum hobby) {
-        if (hobby.equals(ART))
+        if (hobby.equals(HobbyEnum.ART))
         {
             return likedArt;
         }
-        else if (hobby.equals(READ))
+        else if (hobby.equals(HobbyEnum.READ))
         {
             return likedRead;
         }
-        else if (hobby.equals(SPORTS))
+        else if (hobby.equals(HobbyEnum.SPORTS))
         {
             return likedSports;
         }
-        else if (hobby.equals(MUSIC))
+        else if (hobby.equals(HobbyEnum.MUSIC))
         {
             return likedMusic;
         }
@@ -161,19 +161,19 @@ public class Tracker {
      *         song
      */
     public int getHeardByMajor(MajorEnum major) {
-        if (major.equals(COMPUTER_SCIENCE))
+        if (major.equals(MajorEnum.COMPUTER_SCIENCE))
         {
             return heardCompSci;
         }
-        else if (major.equals(OTHER_ENGINEERING))
+        else if (major.equals(MajorEnum.OTHER_ENGINEERING))
         {
             return heardOtherEnge;
         }
-        else if (major.equals(MATH_CMDA))
+        else if (major.equals(MajorEnum.MATH_CMDA))
         {
             return heardMathCMDA;
         }
-        else if (major.equals(OTHER))
+        else if (major.equals(MajorEnum.OTHER))
         {
             return heardOther;
         }
@@ -193,19 +193,19 @@ public class Tracker {
      *         song
      */
     public int getLikedByMajor(MajorEnum major) {
-        if (major.equals(COMPUTER_SCIENCE))
+        if (major.equals(MajorEnum.COMPUTER_SCIENCE))
         {
             return likedCompSci;
         }
-        else if (major.equals(OTHER_ENGINEERING))
+        else if (major.equals(MajorEnum.OTHER_ENGINEERING))
         {
-            return likedOthlikeerEnge;
+            return likedOtherEnge;
         }
-        else if (major.equals(MATH_CMDA))
+        else if (major.equals(MajorEnum.MATH_CMDA))
         {
             return likedMathCMDA;
         }
-        else if (major.equals(OTHER))
+        else if (major.equals(MajorEnum.OTHER))
         {
             return likedOther;
         }
@@ -225,19 +225,19 @@ public class Tracker {
      *         song
      */
     public int getHeardByRegion(RegionEnum region) {
-        if (region.equals(NORTH_EAST_US))
+        if (region.equals(RegionEnum.NORTH_EAST_US))
         {
             return heardNE;
         }
-        else if (region.equals(SOUTH_EAST_US))
+        else if (region.equals(RegionEnum.SOUTH_EAST_US))
         {
             return heardSE;
         }
-        else if (region.equals(OTHER_US))
+        else if (region.equals(RegionEnum.OTHER_US))
         {
             return heardOtherUS;
         }
-        else if (region.equals(OUTSIDE_US))
+        else if (region.equals(RegionEnum.OUTSIDE_US))
         {
             return heardOutside;
         }
@@ -257,19 +257,19 @@ public class Tracker {
      *         song
      */
     public int getLikedByRegion(RegionEnum region) {
-        if (region.equals(NORTH_EAST_US))
+        if (region.equals(RegionEnum.NORTH_EAST_US))
         {
             return likedNE;
         }
-        else if (region.equals(SOUTH_EAST_US))
+        else if (region.equals(RegionEnum.SOUTH_EAST_US))
         {
             return likedSE;
         }
-        else if (region.equals(OTHER_US))
+        else if (region.equals(RegionEnum.OTHER_US))
         {
             return likedOtherUS;
         }
-        else if (region.equals(OUTSIDE_US))
+        else if (region.equals(RegionEnum.OUTSIDE_US))
         {
             return likedOutside;
         }
@@ -293,57 +293,57 @@ public class Tracker {
      */
     public void addHear(HobbyEnum hobby, MajorEnum major, RegionEnum region) {
         heard++;
-        if (hobby.equals(ART))
+        if (hobby.equals(HobbyEnum.ART))
         {
             heardArt++;
         }
-        else if (hobby.equals(READ))
+        else if (hobby.equals(HobbyEnum.READ))
         {
             heardRead++;
         }
-        else if (hobby.equals(SPORTS))
+        else if (hobby.equals(HobbyEnum.SPORTS))
         {
             heardSports++;
         }
-        else if (hobby.equals(MUSIC))
+        else if (hobby.equals(HobbyEnum.MUSIC))
         {
             heardMusic++;
         }
 
-        if (major.equals(COMPUTER_SCIENCE))
+        if (major.equals(MajorEnum.COMPUTER_SCIENCE))
         {
             heardCompSci++;
         }
-        else if (major.equals(OTHER_ENGINEERING))
+        else if (major.equals(MajorEnum.OTHER_ENGINEERING))
         {
             heardOtherEnge++;
         }
-        else if (major.equals(MATH_CMDA))
+        else if (major.equals(MajorEnum.MATH_CMDA))
         {
             heardMathCMDA++;
         }
-        else if (major.equals(OTHER))
+        else if (major.equals(MajorEnum.OTHER))
         {
             heardOther++;
         }
 
-        if (region.equals(NORTH_EAST_US))
+        if (region.equals(RegionEnum.NORTH_EAST_US))
         {
             heardNE++;
         }
-        else if (region.equals(SOUTH_EAST_US))
+        else if (region.equals(RegionEnum.SOUTH_EAST_US))
         {
             heardSE++;
         }
-        else if (region.equals(OTHER_US))
+        else if (region.equals(RegionEnum.OTHER_US))
         {
             heardOtherUS++;
         }
-        else if (region.equals(OUTSIDE_US))
+        else if (region.equals(RegionEnum.OUTSIDE_US))
         {
             heardOutside++;
         }
-        }
+        
     }
 
 
@@ -360,53 +360,53 @@ public class Tracker {
      */
     public void addLike(HobbyEnum hobby, MajorEnum major, RegionEnum region) {
         liked++;
-        if (hobby.equals(ART))
+        if (hobby.equals(HobbyEnum.ART))
         {
             likedArt++;
         }
-        else if (hobby.equals(READ))
+        else if (hobby.equals(HobbyEnum.READ))
         {
             likedRead++;
         }
-        else if (hobby.equals(SPORTS))
+        else if (hobby.equals(HobbyEnum.SPORTS))
         {
             likedSports++;
         }
-        else if (hobby.equals(MUSIC))
+        else if (hobby.equals(HobbyEnum.MUSIC))
         {
             likedMusic++;
         }
 
-        if (major.equals(COMPUTER_SCIENCE))
+        if (major.equals(MajorEnum.COMPUTER_SCIENCE))
         {
             likedCompSci++;
         }
-        else if (major.equals(OTHER_ENGINEERING))
+        else if (major.equals(MajorEnum.OTHER_ENGINEERING))
         {
-            likedOthlikeerEnge++;
+            likedOtherEnge++;
         }
-        else if (major.equals(MATH_CMDA))
+        else if (major.equals(MajorEnum.MATH_CMDA))
         {
             likedMathCMDA++;
         }
-        else if (major.equals(OTHER))
+        else if (major.equals(MajorEnum.OTHER))
         {
             likedOther++;
         }
 
-        if (region.equals(NORTH_EAST_US))
+        if (region.equals(RegionEnum.NORTH_EAST_US))
         {
             likedNE++;
         }
-        else if (region.equals(SOUTH_EAST_US))
+        else if (region.equals(RegionEnum.SOUTH_EAST_US))
         {
             likedSE++;
         }
-        else if (region.equals(OTHER_US))
+        else if (region.equals(RegionEnum.OTHER_US))
         {
             likedOtherUS++;
         }
-        else if (region.equals(OUTSIDE_US))
+        else if (region.equals(RegionEnum.OUTSIDE_US))
         {
             likedOutside++;
         }

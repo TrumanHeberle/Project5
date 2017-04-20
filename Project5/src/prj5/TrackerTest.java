@@ -192,4 +192,44 @@ public class TrackerTest extends TestCase {
         assertNotNull(thrown);
         assertTrue(thrown instanceof IllegalArgumentException);      
     }
+    
+    /**
+     * tests when the param is not a valid enum for the hobby
+     */
+    public void testNotValidEnumAddHear()
+    {
+        track.addHear(HobbyEnum.ELSE, MajorEnum.ELSE, RegionEnum.ELSE);
+        assertEquals(0, track.getHeardByHobby(HobbyEnum.ART));
+        assertEquals(0, track.getHeardByHobby(HobbyEnum.READ));
+        assertEquals(0, track.getHeardByHobby(HobbyEnum.SPORTS));
+        assertEquals(0, track.getHeardByHobby(HobbyEnum.MUSIC));
+        assertEquals(0, track.getHeardByMajor(MajorEnum.COMPUTER_SCIENCE));
+        assertEquals(0, track.getHeardByMajor(MajorEnum.MATH_CMDA));
+        assertEquals(0, track.getHeardByMajor(MajorEnum.OTHER));
+        assertEquals(0, track.getHeardByMajor(MajorEnum.OTHER_ENGINEERING));
+        assertEquals(0, track.getHeardByRegion(RegionEnum.NORTH_EAST_US));
+        assertEquals(0, track.getHeardByRegion(RegionEnum.OTHER_US));
+        assertEquals(0, track.getHeardByRegion(RegionEnum.OUTSIDE_US));
+        assertEquals(0, track.getHeardByRegion(RegionEnum.SOUTH_EAST_US));
+    }
+    
+    /**
+     * tests when the param is not a valid enum for the hobby
+     */
+    public void testNotValidEnumAddLike()
+    {
+        track.addLike(HobbyEnum.ELSE, MajorEnum.ELSE, RegionEnum.ELSE);
+        assertEquals(0, track.getLikedByHobby(HobbyEnum.ART));
+        assertEquals(0, track.getLikedByHobby(HobbyEnum.READ));
+        assertEquals(0, track.getLikedByHobby(HobbyEnum.SPORTS));
+        assertEquals(0, track.getLikedByHobby(HobbyEnum.MUSIC));
+        assertEquals(0, track.getLikedByMajor(MajorEnum.COMPUTER_SCIENCE));
+        assertEquals(0, track.getLikedByMajor(MajorEnum.MATH_CMDA));
+        assertEquals(0, track.getLikedByMajor(MajorEnum.OTHER));
+        assertEquals(0, track.getLikedByMajor(MajorEnum.OTHER_ENGINEERING));
+        assertEquals(0, track.getLikedByRegion(RegionEnum.NORTH_EAST_US));
+        assertEquals(0, track.getLikedByRegion(RegionEnum.OTHER_US));
+        assertEquals(0, track.getLikedByRegion(RegionEnum.OUTSIDE_US));
+        assertEquals(0, track.getLikedByRegion(RegionEnum.SOUTH_EAST_US));
+    }
 }

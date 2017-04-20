@@ -1,89 +1,110 @@
+/**
+ * 
+ */
 package prj5;
-import java.io.FileNotFoundException;
-import java.util.Arrays;
-import student.TestCase;
+
+import java.util.Iterator;
+
+/**
+ * @author AshlynUser
+ * @version 2017.04.19
+ * @param <T> the generic type
+ */
+public class LinkedSongList<T> extends DoublyLinkedList<T> {
 
     /**
-     * Tests the PersonScanner class
-     * 
-     * @author Truman Heberle trumanh
-     * @version 4.19.2017
+     * constructor
+     * @return the list
      */
-    public class LinkedSongListTest extends TestCase {
-        private LinkedSongList<Song> list;
-        private Song song1;
-        private Song song2;
-        private Song song3;
-
-
-        /**
-         * Runs before each test case
-         */
-        public void setUp() {
-            list = new LinkedSongList<Song>();
-            song1 = new Song("Watching the Detectives", "Elvis Costello", 1977, "punk", 1);
-            song2 = new Song("Upside Down", "Diana Ross", 1980, "disco", 2);
-            song3 = new Song("Uma Thurman", "Fall Out Boy", 2015, "rock", 3);
-            list.add(0, song1);
-            list.add(1, song2);
-            list.add(2, song3);
+    public LinkedSongList<Song> sortByTitle() {
+        LinkedSongList<Song> titleList = new LinkedSongList<>();
+        CompareSongTitle comparer = new CompareSongTitle();
+        @SuppressWarnings("unchecked")
+        Iterator<Song> iterator = (Iterator<Song>)this.iterator();
+        while (iterator.hasNext()) {
+            // should be length possibly?
+            int size = titleList.size();
+            Song currentSong = iterator.next();
+            int position = 0;
+            while (position < size && comparer.compare(currentSong, titleList
+                .getEntry(position)) > 0) {
+                position++;
+            }
+            titleList.add(position, currentSong);
         }
-
-        /**
-         * Tests the sortByTitle method
-         */
-        public void testSortByTitle() {
-            LinkedSongList<Song> list1 = new LinkedSongList<Song>();
-            song1 = new Song("Watching the Detectives", "Elvis Costello", 1977, "punk", 1);
-            song2 = new Song("Upside Down", "Diana Ross", 1980, "disco", 2);
-            song3 = new Song("Uma Thurman", "Fall Out Boy", 2015, "rock", 3);
-            list1.add(0, song3);
-            list1.add(1, song2);
-            list1.add(2, song1);
-            assertEquals(Arrays.toString(list.sortByTitle().toArray()), Arrays.toString(list1.toArray()));
-        }
-        
-        /**
-         * Tests the sortByArtist method
-         */
-        public void testSortByArtist() {
-            LinkedSongList<Song> list1 = new LinkedSongList<Song>();
-            song1 = new Song("Watching the Detectives", "Elvis Costello", 1977, "punk", 1);
-            song2 = new Song("Upside Down", "Diana Ross", 1980, "disco", 2);
-            song3 = new Song("Uma Thurman", "Fall Out Boy", 2015, "rock", 3);
-            list1.add(0, song2);
-            list1.add(1, song1);
-            list1.add(2, song3);
-            assertEquals(Arrays.toString(list.sortByArtist().toArray()), Arrays.toString(list1.toArray()));
-        }
-        
-        /**
-         * Tests the sortByYear method
-         */
-        public void testSortByYear() {
-            LinkedSongList<Song> list1 = new LinkedSongList<Song>();
-            song1 = new Song("Watching the Detectives", "Elvis Costello", 1977, "punk", 1);
-            song2 = new Song("Upside Down", "Diana Ross", 1980, "disco", 2);
-            song3 = new Song("Uma Thurman", "Fall Out Boy", 2015, "rock", 3);
-            list1.add(0, song1);
-            list1.add(1, song2);
-            list1.add(2, song3);
-            assertEquals(Arrays.toString(list.sortByYear().toArray()), Arrays.toString(list1.toArray()));
-        }
-        
-        /**
-         * Tests the sortByGenre method
-         */
-        public void testSortByGenre() {
-            LinkedSongList<Song> list1 = new LinkedSongList<Song>();
-            song1 = new Song("Watching the Detectives", "Elvis Costello", 1977, "punk", 1);
-            song2 = new Song("Upside Down", "Diana Ross", 1980, "disco", 2);
-            song3 = new Song("Uma Thurman", "Fall Out Boy", 2015, "rock", 3);
-            list1.add(0, song2);
-            list1.add(1, song1);
-            list1.add(2, song3);
-            assertEquals(Arrays.toString(list.sortByGenre().toArray()), Arrays.toString(list1.toArray()));
-        }
+        return titleList;
     }
 
 
+    /**
+     * sorts by artist
+     * @return
+     */
+    public LinkedSongList<Song> sortByArtist() {
+        LinkedSongList<Song> artistList = new LinkedSongList<>();
+        CompareSongArtist comparer = new CompareSongArtist();
+        @SuppressWarnings("unchecked")
+        Iterator<Song> iterator = (Iterator<Song>)this.iterator();
+        while (iterator.hasNext()) {
+            // should be length possibly?
+            int size = artistList.size();
+            Song currentSong = iterator.next();
+            int position = 0;
+            while (position < size && comparer.compare(currentSong, artistList
+                .getEntry(position)) > 0) {
+                position++;
+            }
+            artistList.add(position, currentSong);
+        }
+        return artistList;
+    }
+
+
+    /**
+     * sorts by the year
+     * @return
+     */
+    public LinkedSongList<Song> sortByYear() {
+        LinkedSongList<Song> yearList = new LinkedSongList<>();
+        CompareSongYear comparer = new CompareSongYear();
+        @SuppressWarnings("unchecked")
+        Iterator<Song> iterator = (Iterator<Song>)this.iterator();
+        while (iterator.hasNext()) {
+            // should be length possibly?
+            int size = yearList.size();
+            Song currentSong = iterator.next();
+            int position = 0;
+            while (position < size && comparer.compare(currentSong, yearList
+                .getEntry(position)) > 0) {
+                position++;
+            }
+            yearList.add(position, currentSong);
+        }
+        return yearList;
+    }
+
+
+    /**
+     * sorts by the genre
+     * @return
+     */
+    public LinkedSongList<Song> sortByGenre() {
+        LinkedSongList<Song> genreList = new LinkedSongList<>();
+        CompareSongGenre comparer = new CompareSongGenre();
+        @SuppressWarnings("unchecked")
+        Iterator<Song> iterator = (Iterator<Song>)this.iterator();
+        while (iterator.hasNext()) {
+            // should be length possibly?
+            int size = genreList.size();
+            Song currentSong = iterator.next();
+            int position = 0;
+            while (position < size && comparer.compare(currentSong, genreList
+                .getEntry(position)) > 0) {
+                position++;
+            }
+            genreList.add(position, currentSong);
+        }
+        return genreList;
+    }
+
+}

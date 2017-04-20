@@ -15,17 +15,30 @@ public class Person {
     private String[] answers;
     private static final String YES_MAP = "yes";
 
+
     /**
      * Creates a new Person Object
      * 
-     * @param id The person's id
-     * @param dateS The person's date
-     * @param hobbyS The person's hobby (String)
-     * @param majorS The person's major (String)
-     * @param regionS The person's region (String)
-     * @param answersS The person's list of answers
+     * @param id
+     *            The person's id
+     * @param dateS
+     *            The person's date
+     * @param hobbyS
+     *            The person's hobby (String)
+     * @param majorS
+     *            The person's major (String)
+     * @param regionS
+     *            The person's region (String)
+     * @param answersS
+     *            The person's list of answers
      */
-    public Person(int id, String dateS, String hobbyS, String majorS, String regionS, String[] answersS) {
+    public Person(
+        int id,
+        String dateS,
+        String hobbyS,
+        String majorS,
+        String regionS,
+        String[] answersS) {
         identity = id;
         date = dateS;
         hobby = this.setHobby(hobbyS);
@@ -33,7 +46,8 @@ public class Person {
         region = this.setRegion(regionS);
         answers = answersS;
     }
-    
+
+
     /**
      * Gets the person's id
      * 
@@ -42,7 +56,8 @@ public class Person {
     public int getId() {
         return identity;
     }
-    
+
+
     /**
      * Gets the person's date
      * 
@@ -51,7 +66,8 @@ public class Person {
     public String getDate() {
         return date;
     }
-    
+
+
     /**
      * Gets the person's hobby
      * 
@@ -60,7 +76,8 @@ public class Person {
     public HobbyEnum getHobby() {
         return hobby;
     }
-    
+
+
     /**
      * Gets the person's major
      * 
@@ -69,93 +86,110 @@ public class Person {
     public MajorEnum getMajor() {
         return major;
     }
-    
+
+
     /**
      * Gets the person's region
+     * 
      * @return The person's region
      */
     public RegionEnum getRegion() {
         return region;
     }
-    
+
+
     /**
      * Gets the person's response to heard a song by song number
-     * @param songNum The song's reference number
+     * 
+     * @param songNum
+     *            The song's reference number
      * @return The person's response
      */
     public boolean getHeard(int songNum) {
         return YES_MAP.equals(answers[2 * songNum].toLowerCase());
     }
-    
+
+
     /**
      * Gets the person's response to liking a song by song number
-     * @param songNum The song's reference number
+     * 
+     * @param songNum
+     *            The song's reference number
      * @return The person's response
      */
     public boolean getLiked(int songNum) {
         return YES_MAP.equals(answers[1 + 2 * songNum].toLowerCase());
     }
 
+
     /**
      * Sets the hobby based on an input String
      * 
-     * @param hobbyString The String used to compare
+     * @param hobbyString
+     *            The String used to compare
      * @return The corresponding HobbyEnum
      */
     private HobbyEnum setHobby(String hobbyString) {
-        switch (hobbyString.toLowerCase()) {
-        case "reading":
-            return HobbyEnum.READ;
-        case "sports":
-            return HobbyEnum.SPORTS;
-        case "music":
-            return HobbyEnum.MUSIC;
-        case "art":
-            return HobbyEnum.ART;
-        default:
-            return null;
+        hobbyString = hobbyString.toLowerCase();
+        switch (hobbyString) {
+            case "reading":
+                return HobbyEnum.READ;
+            case "sports":
+                return HobbyEnum.SPORTS;
+            case "music":
+                return HobbyEnum.MUSIC;
+            case "art":
+                return HobbyEnum.ART;
+            default:
+                return null;
         }
     }
-    
+
+
     /**
      * Sets the major based on an input String
      * 
-     * @param majorString The String used to compare
+     * @param majorString
+     *            The String used to compare
      * @return The corresponding MajorEnum
      */
     private MajorEnum setMajor(String majorString) {
-        switch (majorString.toLowerCase()) {
-        case "computer science":
-            return MajorEnum.COMPUTER_SCIENCE;
-        case "math or cmda":
-            return MajorEnum.MATH_CMDA;
-        case "other engineering":
-            return MajorEnum.OTHER_ENGINEERING;
-        case "other":
-            return MajorEnum.OTHER;
-        default:
-            return null;
+        majorString = majorString.toLowerCase();
+        switch (majorString) {
+            case "computer science":
+                return MajorEnum.COMPUTER_SCIENCE;
+            case "math or cmda":
+                return MajorEnum.MATH_CMDA;
+            case "other engineering":
+                return MajorEnum.OTHER_ENGINEERING;
+            case "other":
+                return MajorEnum.OTHER;
+            default:
+                return null;
         }
     }
-    
+
+
     /**
-     * Sets the hobby based on an input String
+     * Sets the region based on an input String
      * 
-     * @param hobbyString The String used to compare
-     * @return The corresponding HobbyEnum
+     * @param regionString
+     *            The String used to compare
+     * @return The corresponding RegionEnum
      */
     private RegionEnum setRegion(String regionString) {
-        switch (regionString.toLowerCase()) {
-        case "southeast":
-            return RegionEnum.SOUTH_EAST_US;
-        case "northeast":
-            return RegionEnum.NORTH_EAST_US;
-        case "united states (other than southeast or northwest)":
-            return RegionEnum.OTHER_US;
-        case "outside of united states":
-            return RegionEnum.OUTSIDE_US;
-        default:
-            return null;
+        regionString = regionString.toLowerCase();
+        switch (regionString) {
+            case "southeast":
+                return RegionEnum.SOUTH_EAST_US;
+            case "northeast":
+                return RegionEnum.NORTH_EAST_US;
+            case "united states (other than southeast or northwest)":
+                return RegionEnum.OTHER_US;
+            case "outside of united states":
+                return RegionEnum.OUTSIDE_US;
+            default:
+                return null;
         }
     }
 }

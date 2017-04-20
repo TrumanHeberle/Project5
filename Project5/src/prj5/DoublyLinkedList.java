@@ -9,13 +9,15 @@ import java.util.NoSuchElementException;
  * 
  * @author Truman Heberle trumanh
  * @version 4.15.2017
- * @param <T> The type of data stored in the list
+ * @param <T>
+ *            The type of data stored in the list
  */
 public class DoublyLinkedList<T> implements Iterable<T> {
     private int size;
     private Node<T> head;
     private Node<T> tail;
-    
+
+
     /**
      * Creates new DoublyLinkedList
      */
@@ -26,13 +28,18 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         head.setNext(tail);
         tail.setPrevious(head);
     }
-    
+
+
     /**
      * Prevents StackOverflowErros when creating a Node
-     * @param bool Any boolean
+     * 
+     * @param bool
+     *            Any boolean
      */
-    private DoublyLinkedList(boolean bool) {}
-    
+    private DoublyLinkedList(boolean bool) {
+    }
+
+
     /**
      * Returns the size of the DoublyLinkedList
      * 
@@ -41,44 +48,52 @@ public class DoublyLinkedList<T> implements Iterable<T> {
     public int size() {
         return size;
     }
-    
+
+
     /**
      * Creates a new Node with data and adds it to the back
      * of the DoublyLinkedList
      * 
-     * @param data The data to be stored
+     * @param data
+     *            The data to be stored
      */
     public void addToBack(T data) {
         Node<T> newNode = new Node<T>(data);
         newNode.addAfter(tail.previous());
         size++;
     }
-    
+
+
     /**
      * Creates a new Node with data and adds it to the front
      * of the DoublyLinkedList
      * 
-     * @param data The data to be stored
+     * @param data
+     *            The data to be stored
      */
     public void addToFront(T data) {
         Node<T> newNode = new Node<T>(data);
         newNode.addAfter(head);
         size++;
     }
-    
+
+
     /**
      * Creates a new Node with data and adds it at
      * a certain position in the DoublyLinkedList
      * 
-     * @param index The position to add the Node to
-     * @param data The data to be stored
-     * @throws IndexOutOfBoundsException If the index is not valid
+     * @param index
+     *            The position to add the Node to
+     * @param data
+     *            The data to be stored
+     * @throws IndexOutOfBoundsException
+     *             If the index is not valid
      */
     public void add(int index, T data) throws IndexOutOfBoundsException {
         if (index > size || index < 0) {
             throw new IndexOutOfBoundsException("Index is invalid");
         }
-        
+
         Node<T> curr = head;
         for (int i = 0; i < index; i++) {
             curr = curr.next();
@@ -87,12 +102,14 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         newNode.addAfter(curr);
         size++;
     }
-    
+
+
     /**
      * Removes the first Node and returns its data
      * 
      * @return The first Node's data
-     * @throws IllegalStateException If the list is empty
+     * @throws IllegalStateException
+     *             If the list is empty
      */
     public T removeFront() throws IllegalStateException {
         if (size == 0) {
@@ -101,12 +118,14 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         size--;
         return head.next().remove();
     }
-    
+
+
     /**
      * Removes the last Node and returns its data
      * 
      * @return The last Node's data
-     * @throws IllegalStateException If the list is empty
+     * @throws IllegalStateException
+     *             If the list is empty
      */
     public T removeBack() throws IllegalStateException {
         if (size == 0) {
@@ -115,15 +134,9 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         size--;
         return tail.previous().remove();
     }
-    
-    /**
-     * Searches for the first Node containing input data
-     * and removes that node. Returns whether the Node
-     * was successfully removed
-     * 
-     * @param data The data to remove
-     * @return Whether the Node was removed
-     */
+
+
+    /*
     public boolean remove(T data) {
         Node<T> curr = head.next();
         while (curr != tail) {
@@ -135,24 +148,30 @@ public class DoublyLinkedList<T> implements Iterable<T> {
             curr = curr.next();
         }
         return false;
-    }
-    
+    }*/
+
+
     /**
      * Removes the Node at a certain index if possible
      * 
-     * @param index The Node index to remove
+     * @param index
+     *            The Node index to remove
      * @return The data removed
-     * @throws IndexOutOfBoundsException If the index is not valid
-     * @throws IllegalStateException If the list is empty
+     * @throws IndexOutOfBoundsException
+     *             If the index is not valid
+     * @throws IllegalStateException
+     *             If the list is empty
      */
-    public T remove(int index) throws IndexOutOfBoundsException, IllegalStateException {
+    public T remove(int index)
+        throws IndexOutOfBoundsException,
+        IllegalStateException {
         if (size == 0) {
             throw new IllegalStateException("DoublyLinkedList is empty");
         }
         if (index >= size || index < 0) {
             throw new IndexOutOfBoundsException("Index is invalid");
         }
-                
+
         Node<T> curr = head.next();
         for (int i = 0; i < index; i++) {
             curr = curr.next();
@@ -160,7 +179,8 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         size--;
         return curr.remove();
     }
-    
+
+
     /**
      * Returns the data of the first Node
      * 
@@ -169,7 +189,8 @@ public class DoublyLinkedList<T> implements Iterable<T> {
     public T getFront() {
         return head.next().data();
     }
-    
+
+
     /**
      * Returns the data of the last Node
      * 
@@ -178,30 +199,35 @@ public class DoublyLinkedList<T> implements Iterable<T> {
     public T getBack() {
         return tail.previous().data();
     }
-    
+
+
     /**
      * Returns the data of a specified Node
      * 
-     * @param index The Node's index
+     * @param index
+     *            The Node's index
      * @return The Node's data
-     * @throws IndexOutOfBoundsException If the index is invalid
+     * @throws IndexOutOfBoundsException
+     *             If the index is invalid
      */
     public T getEntry(int index) throws IndexOutOfBoundsException {
         if (index >= size || index < 0) {
             throw new IndexOutOfBoundsException("Index is invalid");
         }
-        
+
         Node<T> curr = head.next();
         for (int i = 0; i < index; i++) {
             curr = curr.next();
         }
         return curr.data();
     }
-    
+
+
     /**
      * Checks whether data is contained in the list
      * 
-     * @param data The data to check for
+     * @param data
+     *            The data to check for
      * @return Whether a Node contains the data
      */
     public boolean contains(T data) {
@@ -214,29 +240,34 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         }
         return false;
     }
-    
+
+
     @Override
     public Iterator<T> iterator() {
         return new ListIterator<T>();
     }
-    
+
+
     /**
      * Stores data in a Node
      * 
      * @author Truman Heberle trumanh
      * @version 4.15.2017
-     * @param <T> The type of data stored in the Node
+     * @param <T>
+     *            The type of data stored in the Node
      */
     @SuppressWarnings("hiding")
     private class Node<T> extends DoublyLinkedList<T> {
         private T data;
         private Node<T> next;
         private Node<T> prev;
-        
+
+
         /**
          * Creates a new Node
          * 
-         * @param nodeData The data to store
+         * @param nodeData
+         *            The data to store
          */
         public Node(T nodeData) {
             super(false);
@@ -244,25 +275,30 @@ public class DoublyLinkedList<T> implements Iterable<T> {
             next = null;
             prev = null;
         }
-        
+
+
         /**
          * Sets the next Node
          * 
-         * @param nextNode The next Node
+         * @param nextNode
+         *            The next Node
          */
         public void setNext(Node<T> nextNode) {
             next = nextNode;
         }
-        
+
+
         /**
          * Sets the previous Node
          * 
-         * @param prevNode The previous Node
+         * @param prevNode
+         *            The previous Node
          */
         public void setPrevious(Node<T> prevNode) {
             prev = prevNode;
         }
-        
+
+
         /**
          * Returns the next Node
          * 
@@ -271,7 +307,8 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         public Node<T> next() {
             return next;
         }
-        
+
+
         /**
          * Returns the previous Node
          * 
@@ -280,16 +317,19 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         public Node<T> previous() {
             return prev;
         }
-        
+
+
         /**
          * Sets the data inside the Node
          * 
-         * @param nodeData The data inside the Node
+         * @param nodeData
+         *            The data inside the Node
          */
         public void setData(T nodeData) {
             data = nodeData;
         }
-        
+
+
         /**
          * Returns the data inside the Node
          * 
@@ -298,7 +338,8 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         public T data() {
             return data;
         }
-        
+
+
         /**
          * Separates this Node from a chain
          * 
@@ -309,52 +350,61 @@ public class DoublyLinkedList<T> implements Iterable<T> {
             this.next().setPrevious(this.previous());
             return this.data;
         }
-        
+
+
         /**
          * Adds this Node to a chain after a specified Node
          * 
-         * @param currentNode the specified Node
+         * @param currentNode
+         *            the specified Node
          */
         public void addAfter(Node<T> currentNode) {
             this.setNext(currentNode.next());
-            currentNode.next().setPrevious(this);
-            currentNode.setNext(this);
+            currentNode.next().setPrevious((Node<T>)this); // Error Webcat
+            currentNode.setNext((Node<T>)this); // Error Webcat
             this.setPrevious(currentNode);
         }
     }
+
 
     /**
      * Allows iteration through the list
      * 
      * @author Truman Heberle trumanh
      * @version 4.16.2017
-     * @param <T> The type of data in the list
+     * @param <T>
+     *            The type of data in the list
      */
     @SuppressWarnings("hiding")
-    private class ListIterator<T> extends DoublyLinkedList<T> implements Iterator<T> {
+    private class ListIterator<T> extends DoublyLinkedList<T>
+        implements Iterator<T> {
         private DoublyLinkedList<T>.Node<T> curr;
-        
+
+
         /**
          * Creates a new Iterator
          */
         @SuppressWarnings("unchecked")
         public ListIterator() {
-            curr = (DoublyLinkedList<T>.Node<T>) head;
+            curr = (DoublyLinkedList<T>.Node<T>)head;
         }
-        
+
+
         @Override
         public boolean hasNext() {
             return curr.next() != tail;
         }
 
+
         @Override
         public T next() {
             if (!this.hasNext()) {
-                throw new NoSuchElementException("No more elements to progress");
+                throw new NoSuchElementException(
+                    "No more elements to progress");
             }
             curr = curr.next();
             return curr.data();
         }
-        
+
     }
 }

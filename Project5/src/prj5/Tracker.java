@@ -33,7 +33,8 @@ public class Tracker {
     private int likedSE;
     private int likedOtherUS;
     private int likedOutside;
-    
+
+
     /**
      * Creates a tracker with all zero data
      */
@@ -65,262 +66,300 @@ public class Tracker {
         likedOtherUS = 0;
         likedOutside = 0;
     }
-    
+
+
     /**
      * Returns the total amount of people who liked the song
+     * 
      * @return The total amount of people who liked the song
      */
     public int getLiked() {
         return liked;
     }
-    
+
+
     /**
      * Returns the total amount of people who heard the song
+     * 
      * @return The total amount of people who heard the song
      */
     public int getHeard() {
         return heard;
     }
-    
+
+
     /**
      * Returns the number of people who heard the song by hobby
-     * @param hobby The specific type of hobby which people heard the song
-     * @return The number of people who have a specified hobby that heard the song
+     * 
+     * @param hobby
+     *            The specific type of hobby which people heard the song
+     * @return The number of people who have a specified hobby that heard the
+     *         song
      */
     public int getHeardByHobby(HobbyEnum hobby) {
         switch (hobby) {
-        case ART:
-            return heardArt;
-        case READ:
-            return heardRead;
-        case SPORTS:
-            return heardSports;
-        case MUSIC:
-            return heardMusic;
-        default:
-            throw new IllegalArgumentException("That enum is invalid");
+            case ART:
+                return heardArt;
+            case READ:
+                return heardRead;
+            case SPORTS:
+                return heardSports;
+            case MUSIC:
+                return heardMusic;
+            default:
+                throw new IllegalArgumentException("That enum is invalid");
         }
     }
-    
+
+
     /**
      * Returns the number of people who liked the song by hobby
-     * @param hobby The specific type of hobby which people liked the song
-     * @return The number of people who have a specified hobby that liked the song
+     * 
+     * @param hobby
+     *            The specific type of hobby which people liked the song
+     * @return The number of people who have a specified hobby that liked the
+     *         song
      */
     public int getLikedByHobby(HobbyEnum hobby) {
         switch (hobby) {
-        case ART:
-            return likedArt;
-        case READ:
-            return likedRead;
-        case SPORTS:
-            return likedSports;
-        case MUSIC:
-            return likedMusic;
-        default:
-            throw new IllegalArgumentException("That enum is invalid");
+            case ART:
+                return likedArt;
+            case READ:
+                return likedRead;
+            case SPORTS:
+                return likedSports;
+            case MUSIC:
+                return likedMusic;
+            default:
+                throw new IllegalArgumentException("That enum is invalid");
         }
     }
-    
+
+
     /**
      * Returns the number of people who heard the song by major
-     * @param major The specific type of major which people heard the song
-     * @return The number of people who have a specified major that heard the song
+     * 
+     * @param major
+     *            The specific type of major which people heard the song
+     * @return The number of people who have a specified major that heard the
+     *         song
      */
     public int getHeardByMajor(MajorEnum major) {
         switch (major) {
-        case COMPUTER_SCIENCE:
-            return heardCompSci;
-        case OTHER_ENGINEERING:
-            return heardOtherEnge;
-        case MATH_CMDA:
-            return heardMathCMDA;
-        case OTHER:
-            return heardOther;
-        default:
-            throw new IllegalArgumentException("That enum is invalid");
+            case COMPUTER_SCIENCE:
+                return heardCompSci;
+            case OTHER_ENGINEERING:
+                return heardOtherEnge;
+            case MATH_CMDA:
+                return heardMathCMDA;
+            case OTHER:
+                return heardOther;
+            default:
+                throw new IllegalArgumentException("That enum is invalid");
         }
     }
-    
+
+
     /**
      * Returns the number of people who liked the song by major
-     * @param major The specific type of major which people liked the song
-     * @return The number of people who have a specified major that liked the song
+     * 
+     * @param major
+     *            The specific type of major which people liked the song
+     * @return The number of people who have a specified major that liked the
+     *         song
      */
     public int getLikedByMajor(MajorEnum major) {
         switch (major) {
-        case COMPUTER_SCIENCE:
-            return likedCompSci;
-        case OTHER_ENGINEERING:
-            return likedOtherEnge;
-        case MATH_CMDA:
-            return likedMathCMDA;
-        case OTHER:
-            return likedOther;
-        default:
-            throw new IllegalArgumentException("That enum is invalid");
+            case COMPUTER_SCIENCE:
+                return likedCompSci;
+            case OTHER_ENGINEERING:
+                return likedOtherEnge;
+            case MATH_CMDA:
+                return likedMathCMDA;
+            case OTHER:
+                return likedOther;
+            default:
+                throw new IllegalArgumentException("That enum is invalid");
         }
     }
-    
+
+
     /**
      * Returns the number of people who heard the song by region
-     * @param region The specific type of region which people heard the song
-     * @return The number of people who have a specified region that heard the song
+     * 
+     * @param region
+     *            The specific type of region which people heard the song
+     * @return The number of people who have a specified region that heard the
+     *         song
      */
     public int getHeardByRegion(RegionEnum region) {
         switch (region) {
-        case NORTH_EAST_US:
-            return heardNE;
-        case SOUTH_EAST_US:
-            return heardSE;
-        case OTHER_US:
-            return heardOtherUS;
-        case OUTSIDE_US:
-            return heardOutside;
-        default:
-            throw new IllegalArgumentException("That enum is invalid");
+            case NORTH_EAST_US:
+                return heardNE;
+            case SOUTH_EAST_US:
+                return heardSE;
+            case OTHER_US:
+                return heardOtherUS;
+            case OUTSIDE_US:
+                return heardOutside;
+            default:
+                throw new IllegalArgumentException("That enum is invalid");
         }
     }
-    
+
+
     /**
      * Returns the number of people who liked the song by region
-     * @param region The specific type of region which people liked the song
-     * @return The number of people who have a specified region that liked the song
+     * 
+     * @param region
+     *            The specific type of region which people liked the song
+     * @return The number of people who have a specified region that liked the
+     *         song
      */
     public int getLikedByRegion(RegionEnum region) {
         switch (region) {
-        case NORTH_EAST_US:
-            return likedNE;
-        case SOUTH_EAST_US:
-            return likedSE;
-        case OTHER_US:
-            return likedOtherUS;
-        case OUTSIDE_US:
-            return likedOutside;
-        default:
-            throw new IllegalArgumentException("That enum is invalid");
+            case NORTH_EAST_US:
+                return likedNE;
+            case SOUTH_EAST_US:
+                return likedSE;
+            case OTHER_US:
+                return likedOtherUS;
+            case OUTSIDE_US:
+                return likedOutside;
+            default:
+                throw new IllegalArgumentException("That enum is invalid");
         }
     }
+
 
     /**
      * Adds one too each respectful heard variable based on:
      * major, hobby, and region
-     * @param hobby The person's hobby who heard the song
-     * @param major The person's major who heard the song
-     * @param region The person's region who heard the song
+     * 
+     * @param hobby
+     *            The person's hobby who heard the song
+     * @param major
+     *            The person's major who heard the song
+     * @param region
+     *            The person's region who heard the song
      */
     public void addHear(HobbyEnum hobby, MajorEnum major, RegionEnum region) {
         heard++;
         switch (hobby) {
-        case ART:
-            heardArt++;
-            break;
-        case READ:
-            heardRead++;
-            break;
-        case SPORTS:
-            heardSports++;
-            break;
-        case MUSIC:
-            heardMusic++;
-            break;
-        default:
-            break;
+            case ART:
+                heardArt++;
+                break;
+            case READ:
+                heardRead++;
+                break;
+            case SPORTS:
+                heardSports++;
+                break;
+            case MUSIC:
+                heardMusic++;
+                break;
+            default:
+                break;
         }
-        
+
         switch (major) {
-        case COMPUTER_SCIENCE:
-            heardCompSci++;
-            break;
-        case OTHER_ENGINEERING:
-            heardOtherEnge++;
-            break;
-        case MATH_CMDA:
-            heardMathCMDA++;
-            break;
-        case OTHER:
-            heardOther++;
-            break;
-        default:
-            break;
+            case COMPUTER_SCIENCE:
+                heardCompSci++;
+                break;
+            case OTHER_ENGINEERING:
+                heardOtherEnge++;
+                break;
+            case MATH_CMDA:
+                heardMathCMDA++;
+                break;
+            case OTHER:
+                heardOther++;
+                break;
+            default:
+                break;
         }
-        
+
         switch (region) {
-        case NORTH_EAST_US:
-            heardNE++;
-            break;
-        case SOUTH_EAST_US:
-            heardSE++;
-            break;
-        case OTHER_US:
-            heardOtherUS++;
-            break;
-        case OUTSIDE_US:
-            heardOutside++;
-            break;
-        default:
-            break;
+            case NORTH_EAST_US:
+                heardNE++;
+                break;
+            case SOUTH_EAST_US:
+                heardSE++;
+                break;
+            case OTHER_US:
+                heardOtherUS++;
+                break;
+            case OUTSIDE_US:
+                heardOutside++;
+                break;
+            default:
+                break;
         }
     }
-    
+
+
     /**
      * Adds one too each respectful liked variable based on:
      * major, hobby, and region
-     * @param hobby The person's hobby who liked the song
-     * @param major The person's major who liked the song
-     * @param region The person's region who liked the song
+     * 
+     * @param hobby
+     *            The person's hobby who liked the song
+     * @param major
+     *            The person's major who liked the song
+     * @param region
+     *            The person's region who liked the song
      */
     public void addLike(HobbyEnum hobby, MajorEnum major, RegionEnum region) {
         liked++;
         switch (hobby) {
-        case ART:
-            likedArt++;
-            break;
-        case READ:
-            likedRead++;
-            break;
-        case SPORTS:
-            likedSports++;
-            break;
-        case MUSIC:
-            likedMusic++;
-            break;
-        default:
-            break;
+            case ART:
+                likedArt++;
+                break;
+            case READ:
+                likedRead++;
+                break;
+            case SPORTS:
+                likedSports++;
+                break;
+            case MUSIC:
+                likedMusic++;
+                break;
+            default:
+                break;
         }
-        
+
         switch (major) {
-        case COMPUTER_SCIENCE:
-            likedCompSci++;
-            break;
-        case OTHER_ENGINEERING:
-            likedOtherEnge++;
-            break;
-        case MATH_CMDA:
-            likedMathCMDA++;
-            break;
-        case OTHER:
-            likedOther++;
-            break;
-        default:
-            break;
+            case COMPUTER_SCIENCE:
+                likedCompSci++;
+                break;
+            case OTHER_ENGINEERING:
+                likedOtherEnge++;
+                break;
+            case MATH_CMDA:
+                likedMathCMDA++;
+                break;
+            case OTHER:
+                likedOther++;
+                break;
+            default:
+                break;
         }
-        
+
         switch (region) {
-        case NORTH_EAST_US:
-            likedNE++;
-            break;
-        case SOUTH_EAST_US:
-            likedSE++;
-            break;
-        case OTHER_US:
-            likedOtherUS++;
-            break;
-        case OUTSIDE_US:
-            likedOutside++;
-            break;
-        default:
-            break;
+            case NORTH_EAST_US:
+                likedNE++;
+                break;
+            case SOUTH_EAST_US:
+                likedSE++;
+                break;
+            case OTHER_US:
+                likedOtherUS++;
+                break;
+            case OUTSIDE_US:
+                likedOutside++;
+                break;
+            default:
+                break;
         }
     }
 }

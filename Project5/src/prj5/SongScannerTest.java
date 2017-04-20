@@ -4,35 +4,36 @@ import java.io.FileNotFoundException;
 import student.TestCase;
 
 /**
- * Tests the PersonScanner class
+ * Tests the SongScanner class
  * 
- * @author Truman Heberle trumanh
- * @version 4.18.2017
+ * @author trumanh
+ * @version 4.19.2017
  */
-public class PersonScannerTest extends TestCase {
-    private PersonScanner ps;
-    private DoublyLinkedList<Person> list;
+public class SongScannerTest extends TestCase {
+    private SongScanner ss;
+    private LinkedSongList<Song> list;
 
 
     /**
      * Runs before each test case
      */
     public void setUp() {
-        ps = new PersonScanner();
-        list = new DoublyLinkedList<Person>();
+        ss = new SongScanner();
+        list = new LinkedSongList<Song>();
     }
+
 
     /**
      * Tests the scanPeople method
      */
     public void testScanPeople() {
         try {
-            ps.scanPeople("MusicSurveyDataTest1.csv");
+            ss.scanSongs("SongListTest1.csv");
         }
         catch (FileNotFoundException e) {
             e.getMessage();
         }
 
-        list = ps.getPeopleList();
+        list = ss.getSongList();
     }
 }

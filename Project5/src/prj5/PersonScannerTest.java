@@ -12,6 +12,7 @@ import student.TestCase;
 public class PersonScannerTest extends TestCase {
     private PersonScanner ps;
     private DoublyLinkedList<Person> list;
+    private PersonScanner scanner;
 
 
     /**
@@ -34,19 +35,71 @@ public class PersonScannerTest extends TestCase {
         }
 
         list = ps.getPeopleList();
+        assertEquals(6, list.size());
+        assertEquals(MajorEnum.COMPUTER_SCIENCE, list.getBack().getMajor());
     }
     
     /**
-     * Tests the auto constructor
+     * tests the scanner when the file is empty
      */
-    public void testConstructor() {
+    public void testScanPeopleEmpty()
+    {
         try {
-            ps = new PersonScanner("MusicSurveyDataTest1.csv");
+            ps.scanPeople("input1");
         }
-        catch (FileNotFoundException e) {
+        catch (FileNotFoundException e)
+        {
             e.getMessage();
         }
-        
-        list = ps.getPeopleList();
+        assertEquals(0, ps.getPeopleList().size());
     }
+    
+    /**
+     * tests the scanner when the file has one line
+     */
+    public void testScanPeopleOneLine()
+    {
+        try {
+            ps.scanPeople("input2");
+        }
+        catch (FileNotFoundException e)
+        {
+            e.getMessage();
+        }
+        assertEquals(0, ps.getPeopleList().size());
+    }
+    
+    /**
+     * tests the scanner when the file has two lines
+     */
+    public void testScanPeopleTwoLines()
+    {
+        try {
+            ps.scanPeople("input3");
+        }
+        catch (FileNotFoundException e)
+        {
+            e.getMessage();
+        }
+        assertEquals(0, ps.getPeopleList().size());
+    }
+    
+    /**
+     * tests the auto constructor
+     */
+    public void testConstructor()
+    {
+        try
+        {
+            scanner = new PersonScanner("MusicSurveyDataTest1");
+        }
+        catch (FileNotFoundException e)
+        {
+            e.getMessage();
+        }
+        list = ps.getPeopleList();
+        assertEquals(6, list.size());
+    }
+    
+
 }

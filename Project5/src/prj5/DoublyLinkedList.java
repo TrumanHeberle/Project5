@@ -247,7 +247,20 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         return new ListIterator<T>();
     }
 
-
+    /**
+     * Returns a generic array of all the data in the list
+     * @return The generic array of all the data in the list
+     */
+    public T[] toArray() {
+        @SuppressWarnings("unchecked")
+        T[] arr = (T[])new Object[this.size];
+        
+        for (int i = 0; i < this.size; i++) {
+            arr[i] = this.getEntry(i);
+        }
+        return arr;
+    }
+    
     /**
      * Stores data in a Node
      * 

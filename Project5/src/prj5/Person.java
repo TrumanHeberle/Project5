@@ -41,10 +41,18 @@ public class Person {
         String[] answersS) {
         identity = id;
         date = dateS;
-        hobby = this.setHobby(hobbyS);
-        major = this.setMajor(majorS);
-        region = this.setRegion(regionS);
+        this.setHobby(hobbyS);
+        this.setMajor(majorS);
+        this.setRegion(regionS);
         answers = answersS;
+    }
+
+
+    /**
+     * default constructor
+     */
+    public Person() {
+        // intentionally left blank
     }
 
 
@@ -118,15 +126,50 @@ public class Person {
      * @return The person's response
      */
     public boolean getLiked(int songNum) {
-        try
-        {
+        try {
             return YES_MAP.equals(answers[1 + 2 * songNum].toLowerCase());
         }
-        catch (Exception e)
-        {
-            
+        catch (Exception e) {
+            e.getMessage();
         }
         return false;
+    }
+
+
+    /**
+     * sets the id
+     * @param parseInt
+     */
+    public void setId(int parseInt) {
+
+        identity = parseInt;
+    }
+    
+    /**
+     * sets the answers
+     * @param surveyAnswers
+     */
+    public void setAnswers(String[] surveyAnswers)
+    {
+        answers = surveyAnswers;
+    }
+    
+    /**
+     * returns the answers
+     * @return the answers
+     */
+    public String[] getAnswers()
+    {
+        return answers;
+    }
+    
+    /**
+     * sets the date
+     * @param date the date
+     */
+    public void setDate(String givenDate)
+    {
+        date = givenDate;
     }
 
 
@@ -135,24 +178,24 @@ public class Person {
      * 
      * @param hobbyString
      *            The String used to compare
-     * @return The corresponding HobbyEnum
      */
-    private HobbyEnum setHobby(String hobbyString) {
+    public void setHobby(String hobbyString) {
         hobbyString = hobbyString.toLowerCase();
         if (hobbyString.equals("reading")) {
-            return HobbyEnum.READ;
+            hobby = HobbyEnum.READ;
         }
         if (hobbyString.equals("sports")) {
-            return HobbyEnum.SPORTS;
+            hobby = HobbyEnum.SPORTS;
         }
         if (hobbyString.equals("music")) {
-            return HobbyEnum.MUSIC;
+            hobby = HobbyEnum.MUSIC;
         }
         if (hobbyString.equals("art")) {
-            return HobbyEnum.ART;
-        }
-        return null;
+            hobby = HobbyEnum.ART;
+        } 
     }
+    
+    
 
 
     /**
@@ -160,23 +203,21 @@ public class Person {
      * 
      * @param majorString
      *            The String used to compare
-     * @return The corresponding MajorEnum
      */
-    private MajorEnum setMajor(String majorString) {
+    public void setMajor(String majorString) {
         majorString = majorString.toLowerCase();
         if (majorString.equals("computer science")) {
-            return MajorEnum.COMPUTER_SCIENCE;
+            major = MajorEnum.COMPUTER_SCIENCE;
         }
         if (majorString.equals("math or cmda")) {
-            return MajorEnum.MATH_CMDA;
+            major = MajorEnum.MATH_CMDA;
         }
         if (majorString.equals("other")) {
-            return MajorEnum.OTHER;
+            major = MajorEnum.OTHER;
         }
         if (majorString.equals("other engineering")) {
-            return MajorEnum.OTHER_ENGINEERING;
+            major = MajorEnum.OTHER_ENGINEERING;
         }
-        return null;
     }
 
 
@@ -185,22 +226,22 @@ public class Person {
      * 
      * @param regionString
      *            The String used to compare
-     * @return The corresponding RegionEnum
      */
-    private RegionEnum setRegion(String regionString) {
+    public void setRegion(String regionString) {
         regionString = regionString.toLowerCase();
         if (regionString.equals("southeast")) {
-            return RegionEnum.SOUTH_EAST_US;
+            region = RegionEnum.SOUTH_EAST_US;
         }
         if (regionString.equals("northeast")) {
-            return RegionEnum.NORTH_EAST_US;
+            region = RegionEnum.NORTH_EAST_US;
         }
-        if (regionString.equals("united states (other than southeast or northwest)")) {
-            return RegionEnum.OTHER_US;
+        if (regionString.equals("united states "
+            + "(other than southeast or northwest)")) {
+            region = RegionEnum.OTHER_US;
         }
         if (regionString.equals("outside of united states")) {
-            return RegionEnum.OUTSIDE_US;
+            region = RegionEnum.OUTSIDE_US;
         }
-        return null;
     }
+
 }

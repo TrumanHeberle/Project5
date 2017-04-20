@@ -43,6 +43,7 @@ public class PersonScanner {
      */
     public DoublyLinkedList<Person> scanPeople(String fileName)
         throws FileNotFoundException {
+        try {
         Scanner scan = new Scanner(new File(fileName));
         // Skips Header
         if (scan.hasNextLine()) {
@@ -102,6 +103,11 @@ public class PersonScanner {
         }
 
         scan.close();
+        }
+        catch (FileNotFoundException e)
+        {
+            System.out.println("File name is invalid");
+        }
         return peopleList;
         // scan.close();
     }

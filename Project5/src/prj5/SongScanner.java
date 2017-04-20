@@ -2,6 +2,11 @@ package prj5;
 
 public class SongScanner {
 
+    public SongScanner(String filename)
+    {
+        this.scanSongs(filename);
+    }
+    
     public DoublyLinkedList<Song> scanSongs(String songFile) {
         DoublyLinkedList<Song> songList = new DoublyLinkedList<Song>();
         try

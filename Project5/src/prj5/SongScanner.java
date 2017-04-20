@@ -1,35 +1,50 @@
 package prj5;
 
-public class SongScanner {
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
-    public SongScanner(String filename)
-    {
+public class SongScanner {
+    private LinkedSongList<Song> songList;
+    private int songNum;
+
+    public SongScanner() {
+        songNum = 0;
+        songList = new LinkedSongList<Song>();
+    }
+
+
+    public SongScanner(String filename) throws FileNotFoundException {
+        this();
         this.scanSongs(filename);
     }
-    
-    public DoublyLinkedList<Song> scanSongs(String songFile) {
-        DoublyLinkedList<Song> songList = new DoublyLinkedList<Song>();
-        try
-        {
-            Scanner file = new Scanner(new File(songFile));
-            int index = 0; 
+
+
+    public void scanSongs(String songFile) throws FileNotFoundException {
+        Scanner file = new Scanner(new File(songFile));
+        
+        // Passes header
+        if (file.hasNextLine()) {
             file.nextLine();
-            while (file.hasNextLine())
-            {
-                String[] songArray = file.nextLine().split( *, *);
-                for (int i = 0; i < songArray.length; i++)
-                {
-                    songList.add(new Song(songArray[i], songArray[i + 1], 
-                        Integer.valueOf(songArray[i + 2]), songArray[i + 3], index));
-                    index += 2;
-                }
-            }
-            file.close();
         }
-        catch (FileNotFoundException e)
-        {
-            System.err.println("Caught FileNotFoundException"); 
+        // Scans file
+        while (file.hasNextLine()) {
+            String[] values = file.nextLine().split(",");
+            
+            String title = values[0];
+            String artist = values[1];
+            int year = Integer.parseInt(values[2]);
+            String genre = values[3];
+            songNum++;
+            
+            Song song = new Song(title, artist, year, genre, songNum);
+            songList.addToBack(song);
         }
+        file.close();
+    }
+
+
+    public LinkedSongList<Song> getSongList() {
         return songList;
     }
 }

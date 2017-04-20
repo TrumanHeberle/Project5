@@ -99,6 +99,25 @@ public class TrackerTest extends TestCase {
     }
     
     /**
+     * tests when the param is not a valid enum for the hobby
+     */
+    public void testNotValidEnum1Heard()
+    {
+        Exception thrown = null;
+        track.addHear(HobbyEnum.ART, MajorEnum.MATH_CMDA, RegionEnum.NORTH_EAST_US);
+        try
+        {
+            track.getHeardByHobby(HobbyEnum.ELSE);           
+        }
+        catch (Exception e)
+        {
+            thrown = e;
+        }
+        assertNotNull(thrown);
+        assertTrue(thrown instanceof IllegalArgumentException);      
+    }
+    
+    /**
      * tests when the param is not a valid enum for the major
      */
     public void testNotValidEnum2()
@@ -118,6 +137,25 @@ public class TrackerTest extends TestCase {
     }
     
     /**
+     * tests when the param is not a valid enum for the major
+     */
+    public void testNotValidEnum2Heard()
+    {
+        Exception thrown = null;
+        track.addHear(HobbyEnum.ART, MajorEnum.MATH_CMDA, RegionEnum.NORTH_EAST_US);
+        try
+        {
+            track.getHeardByMajor(MajorEnum.ELSE);           
+        }
+        catch (Exception e)
+        {
+            thrown = e;
+        }
+        assertNotNull(thrown);
+        assertTrue(thrown instanceof IllegalArgumentException);      
+    }
+    
+    /**
      * tests when the param is not a valid enum for the region
      */
     public void testNotValidEnum3()
@@ -127,6 +165,25 @@ public class TrackerTest extends TestCase {
         try
         {
             track.getLikedByRegion(RegionEnum.ELSE);           
+        }
+        catch (Exception e)
+        {
+            thrown = e;
+        }
+        assertNotNull(thrown);
+        assertTrue(thrown instanceof IllegalArgumentException);      
+    }
+    
+    /**
+     * tests when the param is not a valid enum for the region
+     */
+    public void testNotValidEnum3Heard()
+    {
+        Exception thrown = null;
+        track.addHear(HobbyEnum.ART, MajorEnum.MATH_CMDA, RegionEnum.NORTH_EAST_US);
+        try
+        {
+            track.getHeardByRegion(RegionEnum.ELSE);           
         }
         catch (Exception e)
         {

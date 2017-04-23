@@ -1,3 +1,5 @@
+//this method would be in the song class and would be used instead of the tracker class
+
 /**
      * returns the number of heard and liked by major
      * @return the int array of heard and liked
@@ -43,3 +45,31 @@
         score[1] = (int)(scoreLiked * 100);
         return score;
     }*/
+    
+    
+    //this method below should be in the DoublyLinkedList class
+    
+    /**
+     * returns a list of a certain major
+     * @return a new list
+     * @param major the major
+     */
+    public DoublyLinkedList<Person> getChosenMajorList(MajorEnum major)
+    {
+        DoublyLinkedList<Person> result = new DoublyLinkedList<Person>();
+        @SuppressWarnings("unchecked")
+        Iterator<Person> iterator = (Iterator<Person>)this.iterator();
+        while (iterator.hasNext())
+        {
+            Person currentPerson = iterator.next();
+            if (currentPerson.getMajor().equals(major))
+            {
+                result.addToBack(currentPerson);
+            }
+        }
+        return result;
+    }
+    
+    //this is what would be called in the input class to get certain scores
+    
+    currentSong.getHobbyScore(HobbyEnum.READ, people)[0]);

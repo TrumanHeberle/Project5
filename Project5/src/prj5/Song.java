@@ -20,11 +20,11 @@ public class Song {
     
     /**
      * constructor
-     * @param title1
-     * @param artist1
-     * @param year1
-     * @param genre1
-     * @param songNum1
+     * @param title1 the title
+     * @param artist1 the artist
+     * @param year1 the year
+     * @param genre1 the genre
+     * @param songNum1 the song number
      */
     public Song(String title1, String artist1, 
         int year1, String genre1, int songNum1) {
@@ -38,7 +38,7 @@ public class Song {
     
     /**
      * returns the title
-     * @return
+     * @return the title
      */
     public String getTitle() {
         return title;
@@ -46,7 +46,7 @@ public class Song {
     
     /**
      * returns the artist
-     * @return
+     * @return the artist
      */
     public String getArtist() {
         return artist;
@@ -54,7 +54,7 @@ public class Song {
     
     /**
      * returns the year
-     * @return
+     * @return the year
      */
     public int getYear() {
         return year;
@@ -62,7 +62,7 @@ public class Song {
     
     /**
      * returns the genre
-     * @return
+     * @return the genre
      */
     public String getGenre() {
         return genre;
@@ -70,7 +70,7 @@ public class Song {
     
     /**
      * adds data
-     * @param person
+     * @param person the person
      
     public void addData(Person person) {
         if (person.getLiked(songNum)) {
@@ -88,7 +88,7 @@ public class Song {
     
     /**
      * returns the tracker
-     * @return
+     * @return the tracker
      */
     public Tracker getTracker() {
         return tracker;
@@ -101,10 +101,10 @@ public class Song {
      */
     public int[] getMajorScore(MajorEnum major, DoublyLinkedList<Person> list)
     {
-        int yesHeard = 0;
-        int noHeard = 0;
-        int yesLiked = 0;
-        int noLiked = 0;
+        double yesHeard = 0;
+        double noHeard = 0;
+        double yesLiked = 0;
+        double noLiked = 0;
         int[] score = new int[2];
         //later add methods here for getting the percentage, which we can use
         //for the visual aspect
@@ -131,9 +131,13 @@ public class Song {
                 noLiked++;
             }
         }
-        //calculate score here later (percentage) and have to use doubles, not ints
-        score[0] = yesHeard;
-        score[1] = yesLiked;
+        //calculate score here
+        double totalHeard = yesHeard + noHeard;
+        double scoreHeard = yesHeard / totalHeard;
+        double totalLiked = yesLiked + noLiked;
+        double scoreLiked = yesLiked / totalLiked;
+        score[0] = (int)(scoreHeard * 100);
+        score[1] = (int)(scoreLiked * 100);
         return score;
     }
     
@@ -141,6 +145,7 @@ public class Song {
      * returns the number of heard and liked by hobby
      * @return the int array of heard and liked
      */
+    
     public int[] getHobbyScore(HobbyEnum hobby, DoublyLinkedList<Person> list)
     {
         int yesHeard = 0;
@@ -148,9 +153,6 @@ public class Song {
         int yesLiked = 0;
         int noLiked = 0;
         int[] score = new int[2];
-        //later add methods here for getting the percentage, which we can use
-        //for the visual aspect
-        //need to define this personList class
         DoublyLinkedList<Person> hobbyList = list.getChosenHobbyList(hobby);
         Iterator<Person> iter = hobbyList.iterator();
         while (iter.hasNext())
@@ -173,9 +175,13 @@ public class Song {
                 noLiked++;
             }
         }
-        //calculate score here later (percentage) and have to use doubles, not ints
-        score[0] = yesHeard;
-        score[1] = yesLiked;
+        //calculate score here
+        double totalHeard = yesHeard + noHeard;
+        double scoreHeard = yesHeard / totalHeard;
+        double totalLiked = yesLiked + noLiked;
+        double scoreLiked = yesLiked / totalLiked;
+        score[0] = (int)(scoreHeard * 100);
+        score[1] = (int)(scoreLiked * 100);
         return score;
     }
     
@@ -183,7 +189,9 @@ public class Song {
      * returns the number of heard and liked by region
      * @return the int array of heard and liked
      */
-    public int[] getRegionScore(RegionEnum region, DoublyLinkedList<Person> list)
+    
+    public int[] getRegionScore(RegionEnum region, 
+    DoublyLinkedList<Person> list)
     {
         int yesHeard = 0;
         int noHeard = 0;
@@ -215,9 +223,13 @@ public class Song {
                 noLiked++;
             }
         }
-        //calculate score here later (percentage) and have to use doubles, not ints
-        score[0] = yesHeard;
-        score[1] = yesLiked;
+        //calculate score here
+        double totalHeard = yesHeard + noHeard;
+        double scoreHeard = yesHeard / totalHeard;
+        double totalLiked = yesLiked + noLiked;
+        double scoreLiked = yesLiked / totalLiked;
+        score[0] = (int)(scoreHeard * 100);
+        score[1] = (int)(scoreLiked * 100);
         return score;
     }
 }

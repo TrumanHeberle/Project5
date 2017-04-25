@@ -13,7 +13,7 @@ public class Person {
     private MajorEnum major;
     private RegionEnum region;
     private String[] answers;
-    private static final String YES_MAP = "yes";
+    //private static final String YES_MAP = "yes";
 
 
     /**
@@ -112,10 +112,10 @@ public class Person {
      * @param songNum
      *            The song's reference number
      * @return The person's response
-     */
+     
     public boolean getHeard(int songNum) {
         return YES_MAP.equals(answers[2 * songNum].toLowerCase());
-    }
+    }*/
 
 
     /**
@@ -124,7 +124,7 @@ public class Person {
      * @param songNum
      *            The song's reference number
      * @return The person's response
-     */
+     
     public boolean getLiked(int songNum) {
         try {
             return YES_MAP.equals(answers[1 + 2 * songNum].toLowerCase());
@@ -133,12 +133,12 @@ public class Person {
             e.getMessage();
         }
         return false;
-    }
+    }*/
 
 
     /**
      * sets the id
-     * @param parseInt
+     * @param parseInt the integer
      */
     public void setId(int parseInt) {
 
@@ -147,7 +147,7 @@ public class Person {
     
     /**
      * sets the answers
-     * @param surveyAnswers
+     * @param surveyAnswers the answers
      */
     public void setAnswers(String[] surveyAnswers)
     {
@@ -165,7 +165,7 @@ public class Person {
     
     /**
      * sets the date
-     * @param date the date
+     * @param givenDate the date
      */
     public void setDate(String givenDate)
     {

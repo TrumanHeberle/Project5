@@ -35,6 +35,7 @@ public class SongScannerTest extends TestCase {
         }
 
         list = ss.getSongList();
+        assertEquals(5, list.toArray().length);
     }
     
     /**
@@ -49,5 +50,21 @@ public class SongScannerTest extends TestCase {
         }
         
         list = ss.getSongList();
+        assertEquals(5, list.toArray().length);
+    }
+    
+    /**
+     * Tests the auto constructor again
+     */
+    public void testConstructor2() {
+        try {
+            ss = new SongScanner("SongListTest2.csv");
+        }
+        catch (FileNotFoundException e) {
+            e.getMessage();
+        }
+        
+        list = ss.getSongList();
+        assertEquals(1, list.toArray().length);
     }
 }

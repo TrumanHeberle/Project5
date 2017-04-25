@@ -21,7 +21,7 @@ public class PersonTest extends TestCase {
      * Runs before each test case
      */
     public void setUp() {
-        answers = new String[] { "yes", "", "no", "yes" };
+        answers = new String[] {"yes", "", "no", "yes"};
         person1 = new Person(1, "10/19/15 14:45", "reading", "computer science",
             "southeast", answers);
         person2 = new Person(2, "10/19/15 13:45", "sports", "math or cmda",
@@ -97,8 +97,9 @@ public class PersonTest extends TestCase {
 
     /**
      * Tests the getAnswer() method
-     */
+     
     public void testGetAnswer() {
+        
         assertTrue(person1.getHeard(0));
         assertFalse(person1.getLiked(0));
         assertFalse(person1.getHeard(1));
@@ -124,8 +125,9 @@ public class PersonTest extends TestCase {
             ex = e;
         }
         assertFalse(response);
+        System.out.println(ex instanceof ArrayIndexOutOfBoundsException);
         assertTrue(ex instanceof ArrayIndexOutOfBoundsException);
-    }
+    }*/
     
     /**
      * Tests that the setter methods fail if the strings don't match

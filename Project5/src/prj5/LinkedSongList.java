@@ -10,7 +10,7 @@ import java.util.Iterator;
  * @version 2017.04.19
  * @param <T> the generic type
  */
-public class LinkedSongList<T> extends DoublyLinkedList<T> {
+public class LinkedSongList<T> extends DoublyLinkedList<T> { 
 
     /**
      * constructor
@@ -22,15 +22,20 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
         @SuppressWarnings("unchecked")
         Iterator<Song> iterator = (Iterator<Song>)this.iterator();
         while (iterator.hasNext()) {
-            // should be length possibly?
+            //length vs size???
             int size = titleList.size();
             Song currentSong = iterator.next();
             int position = 0;
-            while (position < size && comparer.compare(currentSong, titleList
-                .getEntry(position)) > 0) {
+            while (position < size && comparer.compare(currentSong, 
+                titleList.getEntry(position)) > 0) {
                 position++;
             }
-            titleList.add(position, currentSong);
+            //not sure if this is necessary
+            if (position > size)
+            {
+                position = -position;
+            }
+            titleList.add(Math.abs(position), currentSong);
         }
         return titleList;
     }
@@ -38,7 +43,7 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
 
     /**
      * sorts by artist
-     * @return
+     * @return the list
      */
     public LinkedSongList<Song> sortByArtist() {
         LinkedSongList<Song> artistList = new LinkedSongList<>();
@@ -62,7 +67,7 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
 
     /**
      * sorts by the year
-     * @return
+     * @return the list
      */
     public LinkedSongList<Song> sortByYear() {
         LinkedSongList<Song> yearList = new LinkedSongList<>();
@@ -86,7 +91,7 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
 
     /**
      * sorts by the genre
-     * @return
+     * @return the list
      */
     public LinkedSongList<Song> sortByGenre() {
         LinkedSongList<Song> genreList = new LinkedSongList<>();

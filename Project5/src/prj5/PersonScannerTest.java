@@ -12,7 +12,7 @@ import student.TestCase;
 public class PersonScannerTest extends TestCase {
     private PersonScanner ps;
     private DoublyLinkedList<Person> list;
-    private PersonScanner scanner;
+    
 
 
     /**
@@ -89,17 +89,40 @@ public class PersonScannerTest extends TestCase {
      */
     public void testConstructor()
     {
+        PersonScanner scanner = null;
         try
         {
-            scanner = new PersonScanner("MusicSurveyDataTest1");
+            scanner = new PersonScanner("MusicSurveyDataTest1.csv");
+        }
+        catch (FileNotFoundException e)
+        {
+            e.getMessage();
+        }
+        assertNotNull(scanner);
+        list = scanner.getPeopleList();
+        assertEquals(6, list.size());
+    }
+    
+    /**
+     * tests the scanPeople method when there are all the entries
+     */
+    public void testScanPeopleVariety()
+    {
+        try
+        {
+            ps.scanPeople("MusicSurveyData.csv");
         }
         catch (FileNotFoundException e)
         {
             e.getMessage();
         }
         list = ps.getPeopleList();
-        assertEquals(6, list.size());
+        assertNotNull(list);
+        assertNotSame(0, list.size());
+        assertEquals(HobbyEnum.MUSIC, list.getBack().getHobby());
+
     }
+    
     
 
 }

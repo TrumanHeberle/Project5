@@ -14,17 +14,17 @@ import java.util.NoSuchElementException;
  */
 public class DoublyLinkedList<T> implements Iterable<T> {
     private int size;
-    private Node<T> head;
-    private Node<T> tail;
+    private Node head;
+    private Node tail;
 
 
     /**
      * Creates new DoublyLinkedList
      */
     public DoublyLinkedList() {
-        size = 0; 
-        head = new Node<T>(null);
-        tail = new Node<T>(null);
+        size = 0;
+        head = new Node(null);
+        tail = new Node(null);
         head.setNext(tail);
         tail.setPrevious(head);
     }
@@ -48,75 +48,63 @@ public class DoublyLinkedList<T> implements Iterable<T> {
     public int size() {
         return size;
     }
-    
+
+
     /**
      * returns a list of a certain major
+     * 
      * @return a new list
-     * @param major the major
+     * @param major
+     *            the major
      */
-    public DoublyLinkedList<Person> getChosenMajorList(MajorEnum major)
-    {
+    public DoublyLinkedList<Person> getChosenMajorList(MajorEnum major) {
         DoublyLinkedList<Person> result = new DoublyLinkedList<Person>();
         @SuppressWarnings("unchecked")
         Iterator<Person> iterator = (Iterator<Person>)this.iterator();
-        while (iterator.hasNext())
-        {
+        while (iterator.hasNext()) {
             Person currentPerson = iterator.next();
-            if (currentPerson.getMajor().equals(major))
-            {
+            if (currentPerson.getMajor().equals(major)) {
                 result.addToBack(currentPerson);
             }
         }
         return result;
     }
-    
+
+
     /**
      * returns a list of a certain hobby
+     * 
      * @return a new list
-     * @param hobby the hobby
+     * @param hobby
+     *            the hobby
      */
-    public DoublyLinkedList<Person> getChosenHobbyList(HobbyEnum hobby)
-    {
+    public DoublyLinkedList<Person> getChosenHobbyList(HobbyEnum hobby) {
         DoublyLinkedList<Person> result = new DoublyLinkedList<Person>();
-        @SuppressWarnings("unchecked")
-        Iterator<Person> iterator = (Iterator<Person>)this.iterator();
-       /** while (iterator.hasNext())
-        {
-            Person currentPerson = iterator.next();
-            if (currentPerson.getHobby().equals(hobby))
-            {
-                result.addToBack(currentPerson);
-            }
-        }*/
-        for (T person: this)
-        {
-            if (((Person)person).getHobby().equals(hobby))
-            {
+        for (T person : this) {
+            if (((Person)person).getHobby().equals(hobby)) {
                 result.addToBack((Person)person);
             }
         }
-        
+
         return result;
     }
-    
+
+
     /**
      * returns a list of a certain region
+     * 
      * @return a new list
-     * @param region the region
+     * @param region
+     *            the region
      */
-    public DoublyLinkedList<Person> getChosenRegionList(RegionEnum region)
-    {
+    public DoublyLinkedList<Person> getChosenRegionList(RegionEnum region) {
         DoublyLinkedList<Person> result = new DoublyLinkedList<Person>();
-        @SuppressWarnings("unchecked")
-        Iterator<Person> iterator = (Iterator<Person>)this.iterator();
-        while (iterator.hasNext())
-        {
-            Person currentPerson = iterator.next();
-            if (currentPerson.getRegion().equals(region))
-            {
-                result.addToBack(currentPerson);
+        for (T person : this) {
+            if (((Person)person).getRegion().equals(region)) {
+                result.addToBack((Person)person);
             }
         }
+
         return result;
     }
 
@@ -129,22 +117,8 @@ public class DoublyLinkedList<T> implements Iterable<T> {
      *            The data to be stored
      */
     public void addToBack(T data) {
-        Node<T> newNode = new Node<T>(data);
+        Node newNode = new Node(data);
         newNode.addAfter(tail.previous());
-        size++;
-    }
-
-
-    /**
-     * Creates a new Node with data and adds it to the front
-     * of the DoublyLinkedList
-     * 
-     * @param data
-     *            The data to be stored
-     */
-    public void addToFront(T data) {
-        Node<T> newNode = new Node<T>(data);
-        newNode.addAfter(head);
         size++;
     }
 
@@ -165,90 +139,13 @@ public class DoublyLinkedList<T> implements Iterable<T> {
             throw new IndexOutOfBoundsException("Index is invalid");
         }
 
-        Node<T> curr = head;
+        Node curr = head;
         for (int i = 0; i < index; i++) {
             curr = curr.next();
         }
-        Node<T> newNode = new Node<T>(data);
+        Node newNode = new Node(data);
         newNode.addAfter(curr);
         size++;
-    }
-
-
-    /**
-     * Removes the first Node and returns its data
-     * 
-     * @return The first Node's data
-     * @throws IllegalStateException
-     *             If the list is empty
-     */
-    public T removeFront() throws IllegalStateException {
-        if (size == 0) {
-            throw new IllegalStateException("DoublyLinkedList is empty");
-        }
-        size--;
-        return head.next().remove();
-    }
-
-
-    /**
-     * Removes the last Node and returns its data
-     * 
-     * @return The last Node's data
-     * @throws IllegalStateException
-     *             If the list is empty
-     */
-    public T removeBack() throws IllegalStateException {
-        if (size == 0) {
-            throw new IllegalStateException("DoublyLinkedList is empty");
-        }
-        size--;
-        return tail.previous().remove();
-    }
-
-
-    /*
-    public boolean remove(T data) {
-        Node<T> curr = head.next();
-        while (curr != tail) {
-            if (curr.data().equals(data)) {
-                size--;
-                curr.remove();
-                return true;
-            }
-            curr = curr.next();
-        }
-        return false;
-    }*/
-
-
-    /**
-     * Removes the Node at a certain index if possible
-     * 
-     * @param index
-     *            The Node index to remove
-     * @return The data removed
-     * @throws IndexOutOfBoundsException
-     *             If the index is not valid
-     * @throws IllegalStateException
-     *             If the list is empty
-     */
-    public T remove(int index)
-        throws IndexOutOfBoundsException,
-        IllegalStateException {
-        if (size == 0) {
-            throw new IllegalStateException("DoublyLinkedList is empty");
-        }
-        if (index >= size || index < 0) {
-            throw new IndexOutOfBoundsException("Index is invalid");
-        }
-
-        Node<T> curr = head.next();
-        for (int i = 0; i < index; i++) {
-            curr = curr.next();
-        }
-        size--;
-        return curr.remove();
     }
 
 
@@ -286,7 +183,7 @@ public class DoublyLinkedList<T> implements Iterable<T> {
             throw new IndexOutOfBoundsException("Index is invalid");
         }
 
-        Node<T> curr = head.next();
+        Node curr = head.next();
         for (int i = 0; i < index; i++) {
             curr = curr.next();
         }
@@ -302,7 +199,7 @@ public class DoublyLinkedList<T> implements Iterable<T> {
      * @return Whether a Node contains the data
      */
     public boolean contains(T data) {
-        Node<T> curr = head.next();
+        Node curr = head.next();
         while (curr != tail) {
             if (curr.data().equals(data)) {
                 return true;
@@ -315,24 +212,26 @@ public class DoublyLinkedList<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return new ListIterator<T>();
+        return new ListIterator();
     }
+
 
     /**
      * Returns an object array of all the data in the list
+     * 
      * @return The generic array of all the data in the list
      */
     public Object[] toArray() {
         Object[] arr = new Object[this.size];
-        if (size != 0)
-        {
+        if (size != 0) {
             for (int i = 0; i < this.size; i++) {
                 arr[i] = this.getEntry(i);
             }
         }
         return arr;
     }
-    
+
+
     /**
      * Stores data in a Node
      * 
@@ -341,10 +240,10 @@ public class DoublyLinkedList<T> implements Iterable<T> {
      * @param <T>
      *            The type of data stored in the Node
      */
-    private class Node<T1> extends DoublyLinkedList<T> {
+    private class Node extends DoublyLinkedList<T> {
         private T data;
-        private Node<T> next;
-        private Node<T> prev;
+        private Node next;
+        private Node prev;
 
 
         /**
@@ -367,7 +266,7 @@ public class DoublyLinkedList<T> implements Iterable<T> {
          * @param nextNode
          *            The next Node
          */
-        public void setNext(Node<T> nextNode) {
+        public void setNext(Node nextNode) {
             next = nextNode;
         }
 
@@ -378,7 +277,7 @@ public class DoublyLinkedList<T> implements Iterable<T> {
          * @param prevNode
          *            The previous Node
          */
-        public void setPrevious(Node<T> prevNode) {
+        public void setPrevious(Node prevNode) {
             prev = prevNode;
         }
 
@@ -388,7 +287,7 @@ public class DoublyLinkedList<T> implements Iterable<T> {
          * 
          * @return The next Node
          */
-        public Node<T> next() {
+        public Node next() {
             return next;
         }
 
@@ -398,7 +297,7 @@ public class DoublyLinkedList<T> implements Iterable<T> {
          * 
          * @return The previous Node
          */
-        public Node<T> previous() {
+        public Node previous() {
             return prev;
         }
 
@@ -425,28 +324,16 @@ public class DoublyLinkedList<T> implements Iterable<T> {
 
 
         /**
-         * Separates this Node from a chain
-         * 
-         * @return The data inside this Node
-         */
-        public T remove() {
-            this.previous().setNext(this.next());
-            this.next().setPrevious(this.previous());
-            return this.data;
-        }
-
-
-        /**
          * Adds this Node to a chain after a specified Node
          * 
          * @param currentNode
          *            the specified Node
          */
         @SuppressWarnings("unchecked")
-        public void addAfter(Node<T> currentNode) {
+        public void addAfter(Node currentNode) {
             this.setNext(currentNode.next());
-            currentNode.next().setPrevious((DoublyLinkedList<T>.Node<T>)this);
-            currentNode.setNext((DoublyLinkedList<T>.Node<T>)this);
+            currentNode.next().setPrevious(this);
+            currentNode.setNext(this);
             this.setPrevious(currentNode);
         }
     }
@@ -460,18 +347,16 @@ public class DoublyLinkedList<T> implements Iterable<T> {
      * @param <T>
      *            The type of data in the list
      */
-    @SuppressWarnings("hiding")
-    private class ListIterator<T> extends DoublyLinkedList<T>
+    private class ListIterator extends DoublyLinkedList<T>
         implements Iterator<T> {
-        private DoublyLinkedList<T>.Node<T> curr;
+        private DoublyLinkedList<T>.Node curr;
 
 
         /**
          * Creates a new Iterator
          */
-        @SuppressWarnings("unchecked")
         public ListIterator() {
-            curr = (DoublyLinkedList<T>.Node<T>)head;
+            curr = head;
         }
 
 

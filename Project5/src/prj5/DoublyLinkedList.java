@@ -22,7 +22,7 @@ public class DoublyLinkedList<T> implements Iterable<T> {
      * Creates new DoublyLinkedList
      */
     public DoublyLinkedList() {
-        size = 0;
+        size = 0; 
         head = new Node<T>(null);
         tail = new Node<T>(null);
         head.setNext(tail);
@@ -52,6 +52,7 @@ public class DoublyLinkedList<T> implements Iterable<T> {
     /**
      * returns a list of a certain major
      * @return a new list
+     * @param major the major
      */
     public DoublyLinkedList<Person> getChosenMajorList(MajorEnum major)
     {
@@ -72,26 +73,36 @@ public class DoublyLinkedList<T> implements Iterable<T> {
     /**
      * returns a list of a certain hobby
      * @return a new list
+     * @param hobby the hobby
      */
     public DoublyLinkedList<Person> getChosenHobbyList(HobbyEnum hobby)
     {
         DoublyLinkedList<Person> result = new DoublyLinkedList<Person>();
         @SuppressWarnings("unchecked")
         Iterator<Person> iterator = (Iterator<Person>)this.iterator();
-        while (iterator.hasNext())
+       /** while (iterator.hasNext())
         {
             Person currentPerson = iterator.next();
-            if (currentPerson.getMajor().equals(hobby))
+            if (currentPerson.getHobby().equals(hobby))
             {
                 result.addToBack(currentPerson);
             }
+        }*/
+        for (T person: this)
+        {
+            if (((Person)person).getHobby().equals(hobby))
+            {
+                result.addToBack((Person)person);
+            }
         }
+        
         return result;
     }
     
     /**
      * returns a list of a certain region
      * @return a new list
+     * @param region the region
      */
     public DoublyLinkedList<Person> getChosenRegionList(RegionEnum region)
     {
@@ -101,7 +112,7 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         while (iterator.hasNext())
         {
             Person currentPerson = iterator.next();
-            if (currentPerson.getMajor().equals(region))
+            if (currentPerson.getRegion().equals(region))
             {
                 result.addToBack(currentPerson);
             }

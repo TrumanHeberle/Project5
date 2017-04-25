@@ -1,5 +1,6 @@
 package prj5;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import student.TestCase;
@@ -12,12 +13,21 @@ import student.TestCase;
  */
 public class DoublyLinkedListTest extends TestCase {
     private DoublyLinkedList<String> list;
+    private DoublyLinkedList<Person> personList;
     
     /**
      * Runs before each test case
      */
     public void setUp() {
         list = new DoublyLinkedList<String>();
+        personList = new DoublyLinkedList<Person>();
+        String[] answers = new String[] {"yes", "", "no", "yes"};
+        personList.addToBack(new Person(0, "July 3rd", "reading", 
+            "computer science", "southeast", answers));
+        personList.addToBack(new Person(1, "July 3rd", "art", 
+            "math or cmda", "northeast", answers));
+        personList.addToBack(new Person(2, "July 3rd", "sports", 
+            "other", "outside of united states", answers));
     }
     
     /**
@@ -25,9 +35,9 @@ public class DoublyLinkedListTest extends TestCase {
      */
     public void testSize() {
         assertEquals(0, list.size());
-        list.addToFront("a");
+        list.addToBack("a");
         assertEquals(1, list.size());
-        list.removeFront();
+        list.removeBack();
         assertEquals(0, list.size());
     }
     
@@ -112,6 +122,38 @@ public class DoublyLinkedListTest extends TestCase {
         }
         assertTrue(ex instanceof IndexOutOfBoundsException);
         assertEquals(4, list.size());
+    }
+    
+    /**
+     * tests the getChosenMajor method
+     */
+    public void testGetChosenMajor()
+    {
+        assertEquals(1, personList.getChosenMajorList(MajorEnum.
+            COMPUTER_SCIENCE).size()); 
+        assertEquals(1, personList.getChosenMajorList(MajorEnum.
+            MATH_CMDA).size());
+        assertEquals(1, personList.getChosenMajorList(MajorEnum.
+            OTHER).size());
+        assertEquals(0, personList.getChosenMajorList(MajorEnum.
+            OTHER_ENGINEERING).size());
+    }
+    
+    /**
+     * tests the getChosenHobby method
+     */
+    public void testGetChosenHobby()
+    {
+        assertEquals(1, personList.getChosenHobbyList(HobbyEnum.SPORTS).size());
+    }
+    
+    /**
+     * tests the getChosenRegion method
+     */
+    public void testGetChosenRegion()
+    {
+        assertEquals(1, personList.getChosenRegionList(RegionEnum.
+            SOUTH_EAST_US).size());
     }
     
     /**
@@ -330,5 +372,15 @@ public class DoublyLinkedListTest extends TestCase {
         assertEquals("String 2", arr[1]);
         assertEquals("String 3", arr[2]);
         assertEquals("String 4", arr[3]);
+        assertEquals("[String 1, String 2, String 3, String 4]", 
+            Arrays.toString(arr));
+    }
+    
+    /**
+     * tests the toArray method on an empty list
+     */
+    public void testToArrayEmpty()
+    {
+        assertEquals("[]", Arrays.toString(list.toArray()));
     }
 }

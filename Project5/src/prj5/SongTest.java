@@ -10,8 +10,8 @@ package prj5;
 public class SongTest extends student.TestCase {
 
     private Song song;
-    private Song song2;
-    private Song song3;
+    //private Song song2;
+    //private Song song3;
     
     /**
      * sets up the test methods
@@ -19,8 +19,8 @@ public class SongTest extends student.TestCase {
     public void setUp()
     {
         song = new Song("Hello", "Adele", 2016, "Pop", 0);
-        song2 = new Song("Hey", "Taylor Swift", 2010, "Pop", 1);
-        song3 = new Song("Billie Jean", "Michael Jackson", 2000, "Pop", 2);
+        //song2 = new Song("Hey", "Taylor Swift", 2010, "Pop", 1);
+        //song3 = new Song("Billie Jean", "Michael Jackson", 2000, "Pop", 2);
     }
     
     /**
@@ -33,6 +33,14 @@ public class SongTest extends student.TestCase {
         assertEquals(2016, song.getYear());
         assertEquals("Pop", song.getGenre());
     }
+    
+    /**
+     * tests the hobby score method
+     *
+    public void testGetHobbyScore()
+    {
+        
+    }*/
     
     /**
      * test the addData method when the person liked the song

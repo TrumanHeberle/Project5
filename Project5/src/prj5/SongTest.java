@@ -3,6 +3,8 @@
  */
 package prj5;
 
+import java.util.Arrays;
+
 /**
  * @author AshlynUser
  * @version 2017.04.19
@@ -10,8 +12,8 @@ package prj5;
 public class SongTest extends student.TestCase {
 
     private Song song;
-    //private Song song2;
-    //private Song song3;
+    private DoublyLinkedList<Person> list;
+    private int[] scores;
     
     /**
      * sets up the test methods
@@ -19,8 +21,23 @@ public class SongTest extends student.TestCase {
     public void setUp()
     {
         song = new Song("Hello", "Adele", 2016, "Pop", 0);
-        //song2 = new Song("Hey", "Taylor Swift", 2010, "Pop", 1);
-        //song3 = new Song("Billie Jean", "Michael Jackson", 2000, "Pop", 2);
+        String[] ans1 = new String[] {"yes", "no"};
+        Person per1 = new Person(123, "03/03/2003 10:59", "art", "computer science", "Southeast", ans1);
+        String[] ans2 = new String[] {"yes", "yes"};
+        Person per2 = new Person(123, "03/03/2003 10:59", "art", "computer science", "Southeast", ans2);
+        String[] ans3 = new String[] {"no", "no"};
+        Person per3 = new Person(123, "03/03/2003 10:59", "art", "computer science", "Southeast", ans3);
+        String[] ans4 = new String[] {"no", "yes"};
+        Person per4 = new Person(123, "03/03/2003 10:59", "art", "computer science", "Southeast", ans4);
+        String[] ans5 = new String[] {"a", "a"};
+        Person per5 = new Person(123, "03/03/2003 10:59", "art", "computer science", "Southeast", ans5);
+        list = new DoublyLinkedList<Person>();
+        list.addToBack(per1);
+        list.addToBack(per2);
+        list.addToBack(per3);
+        list.addToBack(per4);
+        list.addToBack(per5);
+        scores = new int[] {50, 50};
     }
     
     /**
@@ -35,36 +52,27 @@ public class SongTest extends student.TestCase {
     }
     
     /**
-     * tests the hobby score method
-     *
-    public void testGetHobbyScore()
+     * tests the getMajorScore method
+     */
+    public void testGetMajorScore()
     {
         
-    }*/
+        assertEquals(Arrays.toString(song.getMajorScore(MajorEnum.COMPUTER_SCIENCE, list)), Arrays.toString(scores));
+    }
     
     /**
-     * test the addData method when the person liked the song
-     
-    public void testAddData()
+     * tests the getHobbyScore method
+     */
+    public void testGetHobbyScore()
     {
-        String[] answers = new String[6];
-        answers[0] = "Yes";
-        answers[1] = "No";
-        answers[2] = "No";
-        answers[3] = "No";
-        answers[4] = "Yes";
-        answers[5] = "Yes";
-        Person person = new Person(1, "04/10/17", "sports",
-            "Other", "Southeast", answers);
-        song.addData(person);
-        song2.addData(person);
-        song3.addData(person);
-        assertEquals(1, song.getTracker().getHeard());
-        assertEquals(0, song.getTracker().getLiked());
-        assertEquals(0, song2.getTracker().getHeard());
-        assertEquals(0, song2.getTracker().getLiked());
-        assertEquals(1, song3.getTracker().getHeard());
-        assertEquals(1, song3.getTracker().getLiked());
-    }*/
+        assertEquals(Arrays.toString(song.getHobbyScore(HobbyEnum.ART, list)), Arrays.toString(scores));
+    }
     
+    /**
+     * tests the getRegionScore method
+     */
+    public void testGetRegionScore()
+    {
+        assertEquals(Arrays.toString(song.getRegionScore(RegionEnum.SOUTH_EAST_US, list)), Arrays.toString(scores));
+    }
 }

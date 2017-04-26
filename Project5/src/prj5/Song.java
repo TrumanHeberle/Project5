@@ -16,7 +16,6 @@ public class Song {
     private int year;
     private String genre;
     private int songNum;
-    private Tracker tracker;
     
     /**
      * constructor
@@ -33,7 +32,6 @@ public class Song {
         year = year1;
         genre = genre1;
         songNum = songNum1;
-        tracker = new Tracker();
     }
     
     /**
@@ -69,33 +67,6 @@ public class Song {
     }
     
     /**
-     * adds data
-     * @param person the person
-     
-    public void addData(Person person) {
-        if (person.getLiked(songNum)) {
-            tracker.addHear(person.getHobby(), person.getMajor(), 
-                person.getRegion());
-            tracker.addLike(person.getHobby(), person.getMajor(), 
-                person.getRegion());
-        }
-        else if (person.getHeard(songNum)) {
-            tracker.addHear(person.getHobby(), person.getMajor(), 
-                person.getRegion());
-        }
-    }
-    */
-    
-    /**
-     * returns the tracker
-     * @return the tracker
-     */
-    public Tracker getTracker() {
-        return tracker;
-    }
-    
-    
-    /**
      * returns the number of heard and liked by major
      * @return the int array of heard and liked
      */
@@ -106,9 +77,6 @@ public class Song {
         double yesLiked = 0;
         double noLiked = 0;
         int[] score = new int[2];
-        //later add methods here for getting the percentage, which we can use
-        //for the visual aspect
-        //need to define this personList class
         DoublyLinkedList<Person> majorList = list.getChosenMajorList(major);
         Iterator<Person> iter = majorList.iterator();
         while (iter.hasNext())
@@ -189,7 +157,6 @@ public class Song {
      * returns the number of heard and liked by region
      * @return the int array of heard and liked
      */
-    
     public int[] getRegionScore(RegionEnum region, 
     DoublyLinkedList<Person> list)
     {
@@ -198,9 +165,6 @@ public class Song {
         int yesLiked = 0;
         int noLiked = 0;
         int[] score = new int[2];
-        //later add methods here for getting the percentage, which we can use
-        //for the visual aspect
-        //need to define this personList class
         DoublyLinkedList<Person> regionList = list.getChosenRegionList(region);
         Iterator<Person> iter = regionList.iterator();
         while (iter.hasNext())

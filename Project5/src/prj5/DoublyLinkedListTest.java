@@ -6,10 +6,14 @@ import java.util.NoSuchElementException;
 import student.TestCase;
 
 /**
- * Tests the DoublyLinkedList class
+ * @author Ashlyn McDonald (mashlyn6)
+ * @author Truman Heberle (trumanh)
+ * @author Shivani Garg (shivanig)
+ * @version 2017.04.26
  * 
- * @author Truman Heberle trumanh
- * @version 4.16.2017
+ *          This class tests the methods of the DoublyLinkedList
+ *          class to ensure they work as expected.
+ * 
  */
 public class DoublyLinkedListTest extends TestCase {
     private DoublyLinkedList<String> list;
@@ -17,7 +21,8 @@ public class DoublyLinkedListTest extends TestCase {
 
 
     /**
-     * Runs before each test case
+     * Sets up the test methods and is executed
+     * before each test
      */
     public void setUp() {
         list = new DoublyLinkedList<String>();
@@ -63,7 +68,8 @@ public class DoublyLinkedListTest extends TestCase {
 
     /**
      * Tests the add method
-     * Tests for exception when index is illegal
+     * and tests for the exception
+     * when the index is illegal
      */
     public void testAdd() {
         list.add(0, "0");
@@ -138,11 +144,11 @@ public class DoublyLinkedListTest extends TestCase {
         assertEquals(1, personList.getChosenRegionList(RegionEnum.SOUTH_EAST_US)
             .size());
     }
-    
-    
+
+
     /**
-     * Tests the get method
-     * Tests exception when index is illegal
+     * Tests the get method and tests
+     * the exception when the index is illegal
      */
     public void testGet() {
         list.addToBack("Front");
@@ -227,7 +233,8 @@ public class DoublyLinkedListTest extends TestCase {
 
 
     /**
-     * Tests the toArray method
+     * Tests the toArray method on a non-empty
+     * list
      */
     public void testToArray() {
         list.addToBack("String 1");

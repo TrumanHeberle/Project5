@@ -4,15 +4,21 @@
 package prj5;
 
 /**
- * @author AshlynUser
- * @version 2017.04.19
+ * @author Ashlyn McDonald (mashlyn6)
+ * @author Truman Heberle (trumanh)
+ * @author Shivani Garg (shivanig)
+ * @version 2017.04.26
+ * 
+ * This class tests the methods of the CompareSongGenre
+ * class to ensure they work as expected.
  */
 public class CompareSongGenreTest extends student.TestCase {
 
     private CompareSongGenre comparer;
     
     /**
-     * sets up test methods
+     * sets up test methods and is executed before
+     * each test
      */
     public void setUp()
     {

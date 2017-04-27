@@ -4,16 +4,23 @@ package prj5;
 import java.util.Comparator;
 
 /**
- * @author AshlynUser
- * @version 2017.04.19
+ * @author Ashlyn McDonald (mashlyn6)
+ * @author Truman Heberle (trumanh)
+ * @author Shivani Garg (shivanig)
+ * @version 2017.04.26
+ * 
+ * This class compares two songs by the song's genre.
  */
-public class CompareSongGenre implements Comparator<Object> {
+public class CompareSongGenre implements Comparator<Object> { 
 
     /**
-     * compares two songs based on the genre
-     * @param o1
-     * @param o2
-     * @return 
+     * Compares two songs based on the Song Genre
+     * @param o1 the first object
+     * @param o2 the second object
+     * @return the integer value that represents whether
+     * the first Genre comes before or after the second
+     * one in alphabetical order (0 if they are the same,
+     * some other integer if they are not)
      */
     @Override
     public int compare(Object o1, Object o2)

@@ -4,10 +4,14 @@ import java.io.FileNotFoundException;
 import student.TestCase;
 
 /**
- * Tests the SongScanner class
+ * @author Ashlyn McDonald (mashlyn6)
+ * @author Truman Heberle (trumanh)
+ * @author Shivani Garg (shivanig)
+ * @version 2017.04.26
  * 
- * @author trumanh
- * @version 4.19.2017
+ *          This class tests the methods of the SongScanner
+ *          class to ensure they work as expected.
+ * 
  */
 public class SongScannerTest extends TestCase {
     private SongScanner ss;
@@ -15,7 +19,8 @@ public class SongScannerTest extends TestCase {
 
 
     /**
-     * Runs before each test case
+     * Sets up the test methods and is
+     * executed before each test
      */
     public void setUp() {
         ss = new SongScanner();
@@ -37,7 +42,8 @@ public class SongScannerTest extends TestCase {
         list = ss.getSongList();
         assertEquals(5, list.toArray().length);
     }
-    
+
+
     /**
      * Tests the auto constructor
      */
@@ -48,11 +54,12 @@ public class SongScannerTest extends TestCase {
         catch (FileNotFoundException e) {
             e.getMessage();
         }
-        
+
         list = ss.getSongList();
         assertEquals(5, list.toArray().length);
     }
-    
+
+
     /**
      * Tests the auto constructor again
      */
@@ -63,8 +70,23 @@ public class SongScannerTest extends TestCase {
         catch (FileNotFoundException e) {
             e.getMessage();
         }
-        
+
         list = ss.getSongList();
         assertEquals(1, list.toArray().length);
+    }
+
+
+    /**
+     * Tests the constructor when the file is invalid
+     */
+    public void testConstructorException() {
+
+        try {
+            ss = new SongScanner("input1.txt");
+        }
+        catch (Exception e) {
+            e.getMessage();
+        }
+        assertEquals(0, ss.getSongList().size());
     }
 }

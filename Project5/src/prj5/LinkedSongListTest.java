@@ -4,25 +4,20 @@ import java.util.Arrays;
 import student.TestCase;
 
 /**
- * Tests the PersonScanner class
+ * @author Ashlyn McDonald (mashlyn6)
+ * @author Truman Heberle (trumanh)
+ * @author Shivani Garg (shivanig)
+ * @version 2017.04.26
  * 
- * @author Truman Heberle trumanh
- * @version 4.19.2017
+ *          This class tests the methods of the PersonScanner
+ *          class to ensure they work as expected.
+ * 
  */
 public class LinkedSongListTest extends TestCase {
 
-    private Song song1; 
+    private Song song1;
     private Song song2;
     private Song song3;
-
-
-    /**
-     * Runs before each test case
-     *
-    public void setUp() {
-
-    }*/
-
 
     /**
      * Tests the sortByTitle method

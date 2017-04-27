@@ -6,15 +6,29 @@ package prj5;
 import java.util.Iterator;
 
 /**
- * @author AshlynUser
- * @version 2017.04.19
- * @param <T> the generic type
+ * @author Ashlyn McDonald (mashlyn6)
+ * @author Truman Heberle (trumanh)
+ * @author Shivani Garg (shivanig)
+ * @version 2017.04.26
+ * @param <T>
+ *            The generic type, which provides
+ *            the ability to use many different data types
+ *            for this class
+ * 
+ *            This class represents a doubly-linked
+ *            list of songs, and it has the ability
+ *            to sort the list by title, artist, year,
+ *            or genre.
  */
-public class LinkedSongList<T> extends DoublyLinkedList<T> { 
+public class LinkedSongList<T> extends DoublyLinkedList<T> {
 
     /**
-     * constructor
-     * @return the list
+     * Sorts the current list by song title
+     * by comparing two song titles as
+     * the iterator traverses the list. This method
+     * uses the insertion sorting method.
+     * 
+     * @return the list of songs, sorted by title
      */
     public LinkedSongList<Song> sortByTitle() {
         LinkedSongList<Song> titleList = new LinkedSongList<>();
@@ -22,18 +36,12 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
         @SuppressWarnings("unchecked")
         Iterator<Song> iterator = (Iterator<Song>)this.iterator();
         while (iterator.hasNext()) {
-            //length vs size???
             int size = titleList.size();
             Song currentSong = iterator.next();
             int position = 0;
-            while (position < size && comparer.compare(currentSong, 
-                titleList.getEntry(position)) > 0) {
+            while (position < size && comparer.compare(currentSong, titleList
+                .getEntry(position)) > 0) {
                 position++;
-            }
-            //not sure if this is necessary
-            if (position > size)
-            {
-                position = -position;
             }
             titleList.add(Math.abs(position), currentSong);
         }
@@ -42,8 +50,12 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
 
 
     /**
-     * sorts by artist
-     * @return the list
+     * Sorts the current list by song artist
+     * by comparing two song artists as
+     * the iterator traverses the list. This method
+     * uses the insertion sorting method.
+     * 
+     * @return the list of songs, sorted by artist name
      */
     public LinkedSongList<Song> sortByArtist() {
         LinkedSongList<Song> artistList = new LinkedSongList<>();
@@ -51,7 +63,6 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
         @SuppressWarnings("unchecked")
         Iterator<Song> iterator = (Iterator<Song>)this.iterator();
         while (iterator.hasNext()) {
-            // should be length possibly?
             int size = artistList.size();
             Song currentSong = iterator.next();
             int position = 0;
@@ -66,8 +77,12 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
 
 
     /**
-     * sorts by the year
-     * @return the list
+     * Sorts the current list by song year
+     * by comparing two song years as
+     * the iterator traverses the list. This method
+     * uses the insertion sorting method.
+     * 
+     * @return the list of songs, sorted by release year
      */
     public LinkedSongList<Song> sortByYear() {
         LinkedSongList<Song> yearList = new LinkedSongList<>();
@@ -75,7 +90,6 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
         @SuppressWarnings("unchecked")
         Iterator<Song> iterator = (Iterator<Song>)this.iterator();
         while (iterator.hasNext()) {
-            // should be length possibly?
             int size = yearList.size();
             Song currentSong = iterator.next();
             int position = 0;
@@ -90,8 +104,12 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
 
 
     /**
-     * sorts by the genre
-     * @return the list
+     * Sorts the current list by song genre
+     * by comparing two song genres as
+     * the iterator traverses the list. This method
+     * uses the insertion sorting method.
+     * 
+     * @return the list of songs, sorted by genre
      */
     public LinkedSongList<Song> sortByGenre() {
         LinkedSongList<Song> genreList = new LinkedSongList<>();
@@ -99,7 +117,6 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
         @SuppressWarnings("unchecked")
         Iterator<Song> iterator = (Iterator<Song>)this.iterator();
         while (iterator.hasNext()) {
-            // should be length possibly?
             int size = genreList.size();
             Song currentSong = iterator.next();
             int position = 0;
@@ -111,5 +128,4 @@ public class LinkedSongList<T> extends DoublyLinkedList<T> {
         }
         return genreList;
     }
-
 }

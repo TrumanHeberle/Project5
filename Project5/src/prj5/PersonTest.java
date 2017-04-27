@@ -3,10 +3,14 @@ package prj5;
 import student.TestCase;
 
 /**
- * Tests the Person class
+ * @author Ashlyn McDonald (mashlyn6)
+ * @author Truman Heberle (trumanh)
+ * @author Shivani Garg (shivanig)
+ * @version 2017.04.26
  * 
- * @author Truman Heberle
- * @version 4.15.2017
+ *          This class tests the methods of the
+ *          Person class to ensure they work
+ *          as expected.
  */
 public class PersonTest extends TestCase {
     private Person person1;
@@ -18,10 +22,11 @@ public class PersonTest extends TestCase {
 
 
     /**
-     * Runs before each test case
+     * Sets up the test methods and is executed
+     * before each test
      */
     public void setUp() {
-        answers = new String[] {"yes", "", "no", "yes"};
+        answers = new String[] { "yes", "", "no", "yes" };
         person1 = new Person(1, "10/19/15 14:45", "reading", "computer science",
             "southeast", answers);
         person2 = new Person(2, "10/19/15 13:45", "sports", "math or cmda",
@@ -95,40 +100,6 @@ public class PersonTest extends TestCase {
     }
 
 
-    /**
-     * Tests the getAnswer() method
-     
-    public void testGetAnswer() {
-        
-        assertTrue(person1.getHeard(0));
-        assertFalse(person1.getLiked(0));
-        assertFalse(person1.getHeard(1));
-        assertTrue(person1.getLiked(1));
-
-        Exception ex = null;
-        boolean response = false;
-        try {
-            response = person1.getHeard(2);
-        }
-        catch (Exception e) {
-            ex = e;
-        }
-        assertFalse(response);
-        assertTrue(ex instanceof ArrayIndexOutOfBoundsException);
-
-        ex = null;
-        response = false;
-        try {
-            response = person1.getLiked(2);
-        }
-        catch (Exception e) {
-            ex = e;
-        }
-        assertFalse(response);
-        System.out.println(ex instanceof ArrayIndexOutOfBoundsException);
-        assertTrue(ex instanceof ArrayIndexOutOfBoundsException);
-    }*/
-    
     /**
      * Tests that the setter methods fail if the strings don't match
      */

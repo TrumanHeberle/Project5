@@ -5,26 +5,30 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
+ * @author Ashlyn McDonald (mashlyn6)
+ * @author Truman Heberle (trumanh)
+ * @author Shivani Garg (shivanig)
+ * @version 2017.04.26
  * 
- * @author AshlynUser
- * @version 2017.04.19
+ *          This class scans a file of songs and
+ *          then creates a list of these songs to be
+ *          used in other aspects of this project.
  */
 public class SongScanner {
     private LinkedSongList<Song> songList;
-     private int songNum;
 
 
     /**
-     * constructor
+     * the constructor, which initializes the field
      */
     public SongScanner() {
-         songNum = 0;
         songList = new LinkedSongList<Song>();
     }
 
 
     /**
-     * constructor with param
+     * the constructor, which scans the given
+     * file and initializes the field
      * 
      * @param filename
      *            the file
@@ -37,21 +41,22 @@ public class SongScanner {
 
 
     /**
-     * scans the file of songs
+     * scans the file of songs and adds the
+     * songs in the file to a list of songs
      * 
-     * @param songFile the file
-     * @return the list of songs
+     * @param songFile
+     *            the file to be scanned
+     * 
      * @throws FileNotFoundException
+     *             if the file is invalid
      */
-    public void scanSongs(String songFile)
-        throws FileNotFoundException {
+    public LinkedSongList<Song> scanSongs(String songFile) throws FileNotFoundException {
         try {
             Scanner file = new Scanner(new File(songFile));
             int index = 0;
             file.nextLine();
             while (file.hasNextLine()) {
                 String line = file.nextLine();
-                //System.out.println(line);
                 String[] songArray = line.split(" *, *");
                 for (int i = 0; i < songArray.length; i += 4) {
                     songList.addToBack(new Song(songArray[i], songArray[i + 1],
@@ -61,31 +66,11 @@ public class SongScanner {
                 }
             }
         }
-       /** Scanner file = new Scanner(new File(songFile));
-             //Passes header
-             if (file.hasNextLine()) {
-             file.nextLine();
-             }
-             //Scans file
-             while (file.hasNextLine()) {
-             String[] values = file.nextLine().split(",");
-            String title = values[0];
-             String artist = values[1];
-             int year = Integer.parseInt(values[2]);
-             String genre = values[3];
-
-             Song song = new Song(title, artist, year, genre, songNum);
-             songList.addToBack(song);
-             songNum++;
-             }
-            file.close();
-        }*/
         catch (FileNotFoundException e) {
-            System.out.println("File name is invalid");
+            e.getMessage();
         }
-        }
-        //return songList;
-    
+        return songList;
+    }
 
 
     /**

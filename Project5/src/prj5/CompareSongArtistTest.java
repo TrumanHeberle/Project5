@@ -4,15 +4,21 @@
 package prj5;
 
 /**
- * @author AshlynUser
- * @version 2017.04.19
+ * @author Ashlyn McDonald (mashlyn6)
+ * @author Truman Heberle (trumanh)
+ * @author Shivani Garg (shivanig)
+ * @version 2017.04.26
+ * 
+ * This class tests the methods of the CompareSongArtist 
+ * class to ensure they work as expected.
  */
 public class CompareSongArtistTest extends student.TestCase {
 
     private CompareSongArtist comparer;
     
-    /**
-     * sets up test methods
+    /** 
+     * sets up the test methods and is executed 
+     * before each test
      */
     public void setUp()
     {
@@ -32,7 +38,7 @@ public class CompareSongArtistTest extends student.TestCase {
     
     /**
      * tests the compare method when the two objects
-     * have different artists
+     * have the same artist
      */
     public void testCompareSameArtist()
     {

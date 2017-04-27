@@ -1,10 +1,19 @@
 package prj5;
 
 /**
- * Contains information about a person
  * 
- * @author Truman Heberle trumanh
- * @version 4.15.2017
+ * @author Ashlyn McDonald (mashlyn6)
+ * @author Truman Heberle (trumanh)
+ * @author Shivani Garg (shivanig)
+ * @version 2017.04.26
+ * 
+ *          This class represents an individual
+ *          person, who has filled out the survey
+ *          on whether they have heard or like
+ *          different songs listed. They contain
+ *          data on their personal information
+ *          as well as the responses to the survey
+ *          questions.
  */
 public class Person {
     private int identity;
@@ -13,16 +22,16 @@ public class Person {
     private MajorEnum major;
     private RegionEnum region;
     private String[] answers;
-    //private static final String YES_MAP = "yes";
 
 
     /**
-     * Creates a new Person Object
+     * The constructor, which creates a new
+     * Person Object and initializes fields.
      * 
      * @param id
      *            The person's id
      * @param dateS
-     *            The person's date
+     *            The date the person took the survey
      * @param hobbyS
      *            The person's hobby (String)
      * @param majorS
@@ -49,7 +58,10 @@ public class Person {
 
 
     /**
-     * default constructor
+     * The default constructor, which is intentionally
+     * left blank so that information for a person can
+     * be added after the person is instantiated, which
+     * is helpful when scanning files.
      */
     public Person() {
         // intentionally left blank
@@ -57,7 +69,7 @@ public class Person {
 
 
     /**
-     * Gets the person's id
+     * Returns the person's id
      * 
      * @return The person's id
      */
@@ -67,9 +79,11 @@ public class Person {
 
 
     /**
-     * Gets the person's date
+     * Returns the date that the
+     * Person took the survey
      * 
-     * @return The person's date
+     * @return The date that the Person
+     *         took the survey
      */
     public String getDate() {
         return date;
@@ -77,7 +91,7 @@ public class Person {
 
 
     /**
-     * Gets the person's hobby
+     * Returns the person's hobby
      * 
      * @return The person's hobby
      */
@@ -87,7 +101,7 @@ public class Person {
 
 
     /**
-     * Gets the person's major
+     * Returns the person's major
      * 
      * @return The person's major
      */
@@ -97,7 +111,8 @@ public class Person {
 
 
     /**
-     * Gets the person's region
+     * Returns the region the person is
+     * from
      * 
      * @return The person's region
      */
@@ -107,77 +122,62 @@ public class Person {
 
 
     /**
-     * Gets the person's response to heard a song by song number
+     * Sets the person's id
      * 
-     * @param songNum
-     *            The song's reference number
-     * @return The person's response
-     
-    public boolean getHeard(int songNum) {
-        return YES_MAP.equals(answers[2 * songNum].toLowerCase());
-    }*/
-
-
-    /**
-     * Gets the person's response to liking a song by song number
-     * 
-     * @param songNum
-     *            The song's reference number
-     * @return The person's response
-     
-    public boolean getLiked(int songNum) {
-        try {
-            return YES_MAP.equals(answers[1 + 2 * songNum].toLowerCase());
-        }
-        catch (Exception e) {
-            e.getMessage();
-        }
-        return false;
-    }*/
-
-
-    /**
-     * sets the id
-     * @param parseInt the integer
+     * @param parseInt
+     *            the integer to be
+     *            set for the person's id
      */
     public void setId(int parseInt) {
 
         identity = parseInt;
     }
-    
+
+
     /**
-     * sets the answers
-     * @param surveyAnswers the answers
+     * sets the array of the person's
+     * answers to the survey questions
+     * 
+     * @param surveyAnswers
+     *            the answers to be set for
+     *            the person
      */
-    public void setAnswers(String[] surveyAnswers)
-    {
+    public void setAnswers(String[] surveyAnswers) {
         answers = surveyAnswers;
     }
-    
+
+
     /**
-     * returns the answers
-     * @return the answers
+     * returns the person's answers to
+     * the survey questions
+     * 
+     * @return the array of the person's answers
      */
-    public String[] getAnswers()
-    {
+    public String[] getAnswers() {
         return answers;
     }
-    
+
+
     /**
-     * sets the date
-     * @param givenDate the date
+     * sets the date that the person took the
+     * survey
+     * 
+     * @param givenDate
+     *            the date to set for when the
+     *            person took the survey
      */
-    public void setDate(String givenDate)
-    {
+    public void setDate(String givenDate) {
         date = givenDate;
     }
 
 
     /**
-     * Sets the hobby based on an input String
+     * Sets the hobby for the person
+     * based on an input String
      * 
      * @param hobbyString
-     *            The String used to compare
+     *            The String representing
+     *            the person's hobby
      */
     public void setHobby(String hobbyString) {
         hobbyString = hobbyString.toLowerCase();
@@ -192,17 +192,17 @@ public class Person {
         }
         if (hobbyString.equals("art")) {
             hobby = HobbyEnum.ART;
-        } 
+        }
     }
-    
-    
 
 
     /**
-     * Sets the major based on an input String
+     * Sets the major for the person
+     * based on an input String
      * 
      * @param majorString
-     *            The String used to compare
+     *            The String representing
+     *            the person's major
      */
     public void setMajor(String majorString) {
         majorString = majorString.toLowerCase();
@@ -222,10 +222,12 @@ public class Person {
 
 
     /**
-     * Sets the region based on an input String
+     * Sets a person's region
+     * based on an input String
      * 
      * @param regionString
-     *            The String used to compare
+     *            The String representing
+     *            the person's region
      */
     public void setRegion(String regionString) {
         regionString = regionString.toLowerCase();
